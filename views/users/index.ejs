@@ -1,0 +1,15 @@
+<%- include("./partials/header") %>
+
+<main>
+<h1>ALL DEM MOVIES</h1>
+<ul>
+<% for(let i = 0; i < dogs.length; i++){ %>
+<li>
+USERNAME: <a href="/users/<%=users[i]._id%>"><%= users[i].username %><br>
+
+<%}%>
+</ul>
+
+</main>
+
+<%- include("./partials/footer") %>
