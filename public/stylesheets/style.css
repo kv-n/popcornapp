@@ -1,14 +1,6 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-}
-
-a {
-  color: #00B7FF;
-}
-body {
   margin: 0;
-  background: white;
+  background: #000; 
 }
 video { 
     position: fixed;
@@ -38,7 +30,6 @@ video {
   margin:2rem;
   float: right;
   font-size: 1.2rem;
-  text-align: center;
 }
 h1 {
   font-size: 3rem;

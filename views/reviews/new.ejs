@@ -1,0 +1,23 @@
+<%- include("../partials/header") %>
+<h1>New Review</h2>
+     <main class="photo">
+     <form action="/reviews" method="POST">
+     <select name="userId">
+     <% for (let i = 0; i < users.length; i++) {%>
+     <option value="<%=users[i]._id%>"><%=users[i].username%></option>
+     <%}%><br><br>
+     <p>TITLE:</p> <input type="text" name="name"> <br>
+     <p>REVIEW:</p> <input type="text" name="review"><br>
+     <p>RATING:</p> <select name="How Many Popcorns?">
+     <option value = 1> This popcorn is stale...</option>
+     <option value = 2> This popcorn needs butter </option>
+     <option value = 3> This popcorn was okay. </option>
+     <option value = 4> This popcorn was great! </option>
+     <option value = 5> This is the best !@#$@# Popcorn!</option>
+     </select>
+     <p>HELPFUL:</p> <input type="checkbox" name="helpful"><br>
+     <button type="submit">Enter New Review</button>
+     </form>
+     </main>
+     
+ <%- include("../partials/footer") %>

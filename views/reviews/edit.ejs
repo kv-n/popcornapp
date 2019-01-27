@@ -1,0 +1,32 @@
+<%- include("../partials/header") %>
+
+<main>
+
+<h1>Edit This Review</h1>
+
+<form action="/reviews/<%=review._id%>?_method=PUT" method="POST">
+<select name="userId">
+
+<%for(let i = 0; i <users.length; i++) {%>
+
+<option value="<%=users[i]._id%>">
+
+<% if (users[i]._id.toString() === reviewUser._id.toString()) {%>
+selected
+<%}%>
+<%=users[i].username%></option>
+<%}%>
+</select><br>
+<p>TITLE:</p> <input type="text" name="name"> <br>
+<p>REVIEW:</p> <input type="text" name="review"><br>
+<p>RATING:</p> <input type="number" name="rating"><br>
+<p>HELPFUL:</p> <input type="checkbox" name="helpful" value="TRUE"><br>
+<button type="submit">Update Review</button>
+
+
+</form>
+
+<a href="/reviews">See All Dem Reviews</a>
+</main>
+
+<%- include("../partials/footer") %>

@@ -1,0 +1,23 @@
+<%- include("../partials/header") %>
+
+<h1 class="index-h1 fade-in">All Dem Reviews</h1>
+<a class="color" href="/">HOME</a> |
+<a class="color" href="/reviews/new" alt="Enter New Image">ENTER A REVIEW</a> |
+<a class="color" href="/users/">USERS</a>
+<main class="index">
+
+<% for(let i = 0; i < users.length; i++){ %>
+<%= users[i].username %>
+    <% for(let j = 0; j < users[i].review.length; j++){ %>
+        <a class="color" href="/reviews/<%=users[i].review[j]._id%>">Title: <%=users[i].review[j].title%></a> 
+
+        <p>review: <%=users[i].review[j].review%></p>
+        <p>title: <%=users[i].review[j].title%></p>
+    <%}%>
+<%}%>
+
+
+</main>
+
+
+<%- include("../partials/footer") %>

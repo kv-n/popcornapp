@@ -1,20 +1,21 @@
-<%- include("./partials/header") %>
+<%- include("../partials/header") %>
 
 <main>
 
-<h1>Edit This User</h1>
+<h1>Edit This Review</h1>
 
 <form action="/users/<%=user._id%>?_method=PUT" method="POST">
 
-Username: <input type="text" name="user" value="<%=user.user%>"><br>
-Password: <input type="text" name="password"><br>
+Username: <input type="text" name="user" value="<%=user.username%>"><br>
+Password: <input type="password" name="password"><br>
+Email: <input type="email">
 
 <button type="submit">Edit</button>
 
 </form>
 
-<a href="/users">See All Dem Users</a>
+<a href="/users">See All Dem Movies</a>
 
 </main>
 
-<%- include("./partials/footer") %>
+<%- include("../partials/footer") %>

@@ -1,0 +1,18 @@
+<%- include('../partials/header', {}) %>
+
+<main class="show-ejs">
+
+
+<h1 class="show-h1"><%=review.title%></h1>
+<p><%=review.reviews%></p>
+
+
+<form action="/reviews/<%= review._id %>?_method=DELETE" method="POST">
+<button type="submit">Delete This Review</button>
+</form>
+<a class="color" href="/reviews/<%=review._id%>/edit"> Edit <%=review.review%></a> |
+<a class="color" href="/reviews">All Dem Reviews</a>
+
+</main>
+
+<%- include('../partials/footer') %>

@@ -1,125 +1,93 @@
-var express = require('express');
-var router = express.Router();
-//model data
+const express = require('express');
+const router = express.Router();
 const User = require('../models/users')
+const Review = require('../models/reviews')
 
-
-
-//sessions//login//
-
-// router.post('/users/login', (req, res) => {
-//   try {
-//     // const loggedUser = user.findOne({username: req.body.username})
-//     //once we create our user
-//     req.session.username = req.body.username
-//     req.session.logged = true;
-//     //establish our session
-//     res.redirect('/index')
-//   } catch (err) {
-//     res.send(err)
-//   }
-
-// })
-
-//////////////////////////////
-
-
-//index
-router.get('/index', (req, res) => {
-  console.log(req.session, ' inside of movie index route')
-  User.find({}, (err, allUsers) => {
-    if (err) {
-      res.send(err)
-    } else {
-      res.render('./users/index', {
-        users: allUsers
-      })
-    }
-  })
-})
-
-//new//render create form
-router.get('/new', (req, res) => {
-  res.render('./users/new')
-})
-
-//create//create in our database//posting data
-//change to registration route
-router.post('/new', (req, res) => {
-  User.create(req.body, (err, createdUser) => {
-    if (err) {
-      res.send(err)
-    } else {
-      console.log(`${createdUser} has been added to the database`)
-      res.redirect('/users/index')
-    }
-  })
-})
-
-//edit//show edit form to edit
-router.get('/:id/edit', (req, res) => {
-  User.findById(req.params.id, (err, foundUser) => {
-    res.render('users/edit', {
-      user: foundUser
+router.get('/', (req, res) => {
+    User.find({}, (err, allUsers) => {
+        if (err) {
+            res.send(err)
+        } else {
+            res.render("users/index", {
+                users: allUsers
+            })
+        }
     })
-  })
 })
 
 
+router.get('/new', (req, res) => {
+    res.render('users/new')
+})
 
+router.post('/', (req, res) => {
+    User.create(req.body, (err, createdUser) => {
+        if (err) {
+            res.send(err)
+        } else {
+            console.log(`${createdUser} has been added to the database`)
+            res.redirect('/users')
+        }
+    })
+})
 
+router.get('/:id/edit', (req, res) => {
+    User.findById(req.params.id, (err, editedUser) => {
+        if (err) {
+            res.send(err)
+        } else {
+            console.log(editedUser)
+            res.render('users/edit', {
+                user: editedUser
+            })
+        }
+    })
+})
 
-
-
-
-
-
-
-
-
-//update//puts edits into database
 router.put('/:id', (req, res) => {
-  User.findByIdAndUpdate(req.params.id, req.body, { new: true }, (err, editedUser) => {
-    if (err) {
-      res.send(err)
-    } else {
-      console.log(editedUser)
-      res.redirect('users')
-    }
-  })
+    User.findByIdAndUpdate(req.params.id, req.body, { new: true }, (err, editedUser) => {
+        if (err) {
+            res.send(err)
+        } else {
+            console.log(editedUser)
+            res.redirect('/users')
+        }
+    })
 })
 
-//show page for index
+
 router.get('/:id', (req, res) => {
-  User.findById(req.params.id, (err, foundUsers) => {
-    if (err) {
-      res.send(err)
-    } else {
-      res.render('useres/show', {
-        user: foundUser
-      })
-    }
-  })
+    User.findById(req.params.id, (err, foundUser) => {
+        if (err) {
+            res.send(err)
+        } else {
+            console.log(foundUser)
+            res.render('users/show', {
+                user: foundUser
+            })
+        }
+    })
 })
 
-//show
-
-
-//delete
 router.delete('/:id', (req, res) => {
-  User.findOneAndRemove(req.params.id, () => {
-    res.redirect('/users')
-  })
+    User.findOneAndRemove(req.params.id, (err, deletedUser) => {
+        const userIds = [];
+        for (let i = 0; i < deletedUser.review.length; i++) {
+            userIds.push(deletedUser.review[i]._id)
+        }
+
+        Review.deleteMany(
+            {
+                _id: { $in: userIds }
+            },
+            (err, data) => {
+                res.redirect('/users')
+            }
+        )
+
+    })
 })
 
 
-////////////////////////////////
 
-
-
-
-
-
-
-
-module.exports = router;
+module.exports = router

@@ -1,11 +1,19 @@
 <%- include("../partials/header") %>
 
-<main>
-<h1>ALL DEM MOVIES</h1>
+<h1 class="index-h1 fade-in">Movies</h1>
+<a class="color" href="/users" alt="New User">HOME</a> |
+<a class="color" href="/reviews/new" alt="New User">ADD REVIEW</a>
 
-<a class="color" href="/users/new" alt="New User">NEW USER</a>
+<main class="index">
 
+<div>
+<% for(let i = 0; i < users.length; i++){ %>
+Username: <a class="color" href="/users/<%=users[i]._id%>"><%= users[i].username %></a><br>
+<%}%>
+</div>
 
 </main>
+
+
 
 <%- include("../partials/footer") %>

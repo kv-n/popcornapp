@@ -7,7 +7,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var bodyParser = require('body-parser')
 
-var indexRouter = require('./routes/index');
+var reviewsRouter = require('./routes/reviews');
 var usersRouter = require('./routes/users');
 var methodOverride = require('method-override')
 var session = require('express-session')
@@ -32,8 +32,12 @@ app.use(bodyParser.urlencoded({extended:true}));
 app.use(methodOverride('_method'))
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter);
+app.use('/reviews', reviewsRouter);
 app.use('/users', usersRouter);
+
+app.get('/', (req, res) => {
+  res.render('index')
+})
 
 
 // catch 404 and forward to error handler
