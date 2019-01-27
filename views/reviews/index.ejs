@@ -9,10 +9,11 @@
 <% for(let i = 0; i < users.length; i++){ %>
 <%= users[i].username %>
     <% for(let j = 0; j < users[i].review.length; j++){ %>
-        <a class="color" href="/reviews/<%=users[i].review[j]._id%>">Title: <%=users[i].review[j].title%></a> 
-
+        <p>Title: <%=users[i].review[j].title%></p>
         <p>review: <%=users[i].review[j].review%></p>
-        <p>title: <%=users[i].review[j].title%></p>
+        <p>rating: <%=users[i].review[j].rating%></p>
+
+
     <%}%>
 <%}%>
 

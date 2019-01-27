@@ -6,6 +6,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var bodyParser = require('body-parser')
+// require('dotenv').config();
 
 var reviewsRouter = require('./routes/reviews');
 var usersRouter = require('./routes/users');
@@ -55,6 +56,18 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+
+// production error handler
+// no stacktraces leaked to user
+// app.use(function(err, req, res, next) {
+//   res.status(err.status || 500);
+//   res.render('error', {
+//     message: err.message,
+//     error: {}
+//   });
+// });
+
 
 
 app.listen(3000, () => {

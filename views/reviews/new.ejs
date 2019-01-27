@@ -6,9 +6,10 @@
      <% for (let i = 0; i < users.length; i++) {%>
      <option value="<%=users[i]._id%>"><%=users[i].username%></option>
      <%}%><br><br>
-     <p>TITLE:</p> <input type="text" name="name"> <br>
+     <p>TITLE:</p> <input type="text" name="title"> <br>
      <p>REVIEW:</p> <input type="text" name="review"><br>
-     <p>RATING:</p> <select name="How Many Popcorns?">
+     <p>RATING:</p> 
+     <select name="rating">
      <option value = 1> This popcorn is stale...</option>
      <option value = 2> This popcorn needs butter </option>
      <option value = 3> This popcorn was okay. </option>

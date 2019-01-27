@@ -1,11 +1,11 @@
 const mongoose = require('mongoose')
 
 const reviewSchema = new mongoose.Schema({
-    name: String,
+    title: String,
     review: String,
     rating: Number,
-    title: String,
     helpful: String,
+    movieTitle: String,
 })
 
 const Review = mongoose.model("Review", reviewSchema)

@@ -3,7 +3,11 @@ const router = express.Router()
 //model data goes here
 const Review = require('../models/reviews')
 const User = require('../models/users')
+//api key and axios
+// const axios = require('axios')
+// const token = process.env.MOVIEDBAPI;
 
+// const rootURL = 'https://api.themoviedb.org'
 
 //ROUTES
 
@@ -29,7 +33,7 @@ router.get('/new', (req, res) => {
 
 //create route //create in our database
 router.post('/', (req, res) => {
-    User.findById(req.body.userId, (err, foundUser) => {
+ User.findById(req.body.userId, (err, foundUser) => {
         Review.create(req.body, (err, createdReview) => {
             if (err) {
                 res.send(err)

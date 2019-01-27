@@ -1,20 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" type="text/css" href="../stylesheets/style.css">
-   
-    <script src="javascripts/trailer.js"></script>
+<%- include("./partials/loginheader") %>
 
 
-</head>
-<body> 
-<video poster="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/polina.jpg" id="bgvid" playsinline autoplay muted loop>
+<video poster=" " id="bgvid" playsinline autoplay muted loop>
+
   <!-- 
 -  <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Dosis" rel="stylesheet">
+    <video poster="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/polina.jpg" id="bgvid" playsinline autoplay muted loop>
     <link href="https://fonts.googleapis.com/css?family=Work+Sans" rel="stylesheet">Video needs to be muted, since Chrome 66+ will not autoplay video with sound.
 WCAG general accessibility recommendation is that media such as background video play through only once. Loop turned on for the purposes of illustration; if removed, the end of the video will fade in the same way created by pressing the "Pause" button  -->
 <source src="https://s3.amazonaws.com/freestock-transcoded-videos-prod/transcoded/freestock_v5245247.mp4" type="video/webm">
