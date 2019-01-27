@@ -3,13 +3,35 @@ var router = express.Router();
 //model data
 const User = require('../models/users')
 
+
+
+//sessions//login//
+
+// router.post('/users/login', (req, res) => {
+//   try {
+//     // const loggedUser = user.findOne({username: req.body.username})
+//     //once we create our user
+//     req.session.username = req.body.username
+//     req.session.logged = true;
+//     //establish our session
+//     res.redirect('/index')
+//   } catch (err) {
+//     res.send(err)
+//   }
+
+// })
+
+//////////////////////////////
+
+
 //index
-router.get('/', (req, res) => {
+router.get('/index', (req, res) => {
+  console.log(req.session, ' inside of movie index route')
   User.find({}, (err, allUsers) => {
     if (err) {
       res.send(err)
     } else {
-      res.render('index', {
+      res.render('./users/index', {
         users: allUsers
       })
     }
@@ -23,7 +45,7 @@ router.get('/new', (req, res) => {
 
 //create//create in our database//posting data
 //change to registration route
-router.post('/', (req, res) => {
+router.post('/new', (req, res) => {
   User.create(req.body, (err, createdUser) => {
     if (err) {
       res.send(err)
@@ -42,6 +64,17 @@ router.get('/:id/edit', (req, res) => {
     })
   })
 })
+
+
+
+
+
+
+
+
+
+
+
 
 
 //update//puts edits into database

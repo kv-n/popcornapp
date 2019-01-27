@@ -1,20 +1,22 @@
-<%- include("../partials/header") %>
+<%- include("./partials/header") %>
 
-<header>
-<h1>Welcome POPCORN</h1>
-<nav>
-    <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/">MOVIES</a></li>
-    </ul>
-</nav>
-</header>
+<video poster="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/polina.jpg" id="bgvid" playsinline autoplay muted loop>
+  <!-- 
+- Video needs to be muted, since Chrome 66+ will not autoplay video with sound.
+WCAG general accessibility recommendation is that media such as background video play through only once. Loop turned on for the purposes of illustration; if removed, the end of the video will fade in the same way created by pressing the "Pause" button  -->
+<source src="https://s3.amazonaws.com/freestock-transcoded-videos-prod/transcoded/freestock_v5245247.mp4" type="video/webm">
+<source src="https://s3.amazonaws.com/freestock-transcoded-videos-prod/transcoded/freestock_v5245247.mp4" type="video/mp4">
 
-<main>
-<form action="/users" method="POST">
-    <input type="text" name="name">
-    <button type="submit">Add Review</button>
+</video>
+<div id="polina">
+<h1>POPCORN NEW USER</h1>
+<h4>Login</h4>
+<form action="users/index" method="POST">
+  <input type="text" name="username" placeholder="username"><br>
+  <input type="email" name="email" placeholder="email"><br>
+  <input type="password" name="password" placeholder="password"><br>
+  <button type="submit">Login</button>
 </form>
-</main>
+</div>
 
-<%- include("../partials/footer") %>
+<%- include("./partials/footer") %>

@@ -1,11 +1,14 @@
-const mongoose =require('mongoose')
+const mongoose = require('mongoose');
+Review = require('./reviews')
 
-const userSchema = new mongoose.Schema({
-    username: String,
-    email: String,
-    password: String,
+
+const userSchema = mongoose.Schema({
+    username: {type: String, required:true},
+    password: {type: String, required:true},
+    email: {type: String, required: true},
+    review: [Review.schema]
 })
 
-const User = mongoose.model("User", userSchema)
+const User = mongoose.model('User', userSchema)
 
-module.exports = User
+module.exports = User;

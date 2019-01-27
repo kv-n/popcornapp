@@ -1,6 +1,7 @@
-require('./db/db')
+
 var createError = require('http-errors');
 var express = require('express');
+require('./db/db')
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
@@ -9,10 +10,15 @@ var bodyParser = require('body-parser')
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var methodOverride = require('method-override')
+var session = require('express-session')
 
 var app = express();
 
-
+app.use(session({
+  secret: "This is a random string secret",
+  resave: false,
+  saveUninitialized: false,
+}))
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
