@@ -12,12 +12,21 @@ const User = require('../models/users')
 //ROUTES
 
 //index
-router.get('/', (req, res) => {
-    User.find({}, (err, allUsers) => {
+router.get('/', async (req, res) => {
+
+    try {
+        const allUsers = await User.find({});
         res.render('reviews/index', {
             users: allUsers
         })
-    })
+    } catch (eerr) {
+        res.send(err)
+    }
+    // User.find({}, (err, allUsers) => {
+    //     res.render('reviews/index', {
+    //         users: allUsers
+    //     })
+    // })
 })
 
 //new route//rendering create form
@@ -40,8 +49,6 @@ router.post('/', (req, res) => {
             } else {
                 foundUser.review.push(createdReview);
                 foundUser.save((err, data) => {
-                    console.log(foundUser)
-                    console.log(createdReview + " this is from the reviews route")
                     res.redirect('/reviews')
                 })
             }
@@ -58,7 +65,6 @@ router.get('/:id/edit', (req, res) => {
                 if (err) {
                     res.send(err)
                 } else {
-                    console.log(reviewUser)
                     res.render('reviews/edit', {
                         review: foundReview,
                         users: allUsers,
@@ -111,7 +117,7 @@ router.get('/:id', (req, res) => {
 //delete
 router.delete('/:id', (req, res) => {
     Review.findByIdAndRemove(req.params.id, (err, deletedReview) => {
-        User.findOne({ 'review._id': req.params.id }, (err, foundUser) => {
+        User.findOneAndRemove({ 'review._id': req.params.id }, (err, foundUser) => {
             foundUser.review.id(req.params.id).remove()
             foundUser.save((err, data) => {
                 if (err) {

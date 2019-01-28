@@ -3,34 +3,34 @@ const router = express.Router();
 const User = require('../models/users')
 const Review = require('../models/reviews')
 
-router.get('/', (req, res) => {
-    User.find({}, (err, allUsers) => {
-        if (err) {
-            res.send(err)
-        } else {
-            res.render("users/index", {
-                users: allUsers
-            })
-        }
-    })
+
+router.get('/', async (req, res) => {
+    try {
+        const allUsers = await User.find({})
+        res.render("users/index", {
+            users: allUsers
+        })
+    } catch (err) {
+        res.send(err)
+    }
 })
 
 
-router.get('/new', (req, res) => {
-    res.render('users/new')
-})
+// router.get('/new', (req, res) => {
+//     res.render('users/new')
+// })
 
-router.post('/', (req, res) => {
-    User.create(req.body, (err, createdUser) => {
-        if (err) {
-            res.send(err)
-        } else {
-            console.log(`${createdUser} has been added to the database`)
-            res.redirect('/users')
-        }
-    })
-})
+// router.post('/', async (req, res) => {
+//     try {
+//         const createdUser = await User.create(req.body)
+//         res.redirect('/users')
+//     } catch (err) {
+//         res.send(err)
+//     }
+// })
 
+
+//update form
 router.get('/:id/edit', (req, res) => {
     User.findById(req.params.id, (err, editedUser) => {
         if (err) {
@@ -44,6 +44,7 @@ router.get('/:id/edit', (req, res) => {
     })
 })
 
+//update
 router.put('/:id', (req, res) => {
     User.findByIdAndUpdate(req.params.id, req.body, { new: true }, (err, editedUser) => {
         if (err) {

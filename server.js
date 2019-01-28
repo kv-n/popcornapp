@@ -8,18 +8,22 @@ var logger = require('morgan');
 var bodyParser = require('body-parser')
 // require('dotenv').config();
 
+var authRouter = require('./routes/authentication')
+
 var reviewsRouter = require('./routes/reviews');
 var usersRouter = require('./routes/users');
-var methodOverride = require('method-override')
-var session = require('express-session')
+var methodOverride = require('method-override');
+var session = require('express-session');
 
 var app = express();
 
 app.use(session({
   secret: "This is a random string secret",
   resave: false,
-  saveUninitialized: false,
+  saveUninitialized: false
 }))
+
+app.use('/authentication', authRouter);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

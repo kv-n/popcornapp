@@ -5,9 +5,10 @@
      <select name="userId">
      <% for (let i = 0; i < users.length; i++) {%>
      <option value="<%=users[i]._id%>"><%=users[i].username%></option>
-     <%}%><br><br>
-     <p>TITLE:</p> <input type="text" name="title"> <br>
-     <p>REVIEW:</p> <input type="text" name="review"><br>
+     <%}%>
+     <br>
+     <p>TITLE:</p> <input type="text" name="title">
+     <p>REVIEW:</p> <input type="text" name="review">
      <p>RATING:</p> 
      <select name="rating">
      <option value = 1> This popcorn is stale...</option>
@@ -15,7 +16,7 @@
      <option value = 3> This popcorn was okay. </option>
      <option value = 4> This popcorn was great! </option>
      <option value = 5> This is the best !@#$@# Popcorn!</option>
-     </select>
+     </select><br><br>
      <p>HELPFUL:</p> <input type="checkbox" name="helpful"><br>
      <button type="submit">Enter New Review</button>
      </form>

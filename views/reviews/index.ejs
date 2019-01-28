@@ -1,19 +1,17 @@
 <%- include("../partials/header") %>
 
 <h1 class="index-h1 fade-in">All Dem Reviews</h1>
-<a class="color" href="/">HOME</a> |
+<a class="color" href="/reviews">HOME</a> |
 <a class="color" href="/reviews/new" alt="Enter New Image">ENTER A REVIEW</a> |
 <a class="color" href="/users/">USERS</a>
 <main class="index">
 
 <% for(let i = 0; i < users.length; i++){ %>
-<%= users[i].username %>
+<%= users[i].username.toUpperCase() %>
     <% for(let j = 0; j < users[i].review.length; j++){ %>
         <p>Title: <%=users[i].review[j].title%></p>
         <p>review: <%=users[i].review[j].review%></p>
         <p>rating: <%=users[i].review[j].rating%></p>
-
-
     <%}%>
 <%}%>
 
