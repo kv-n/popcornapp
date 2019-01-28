@@ -6,20 +6,22 @@ const bcrypt = require('bcryptjs')
 //install bcryptjs
 //express-session - required in server .js
 
-
+// router.get('/', (req, res) => {
+//     res.render('users/show')
+// })
 
 
 //registration
-router.post('/registration', async (req, res) => {
+router.post('/', async (req, res) => {
     //username
     const username = req.body.username
-    //password
     const password = req.body.password
     const hashedPswrd = bcrypt.hashSync(password, bcrypt.genSaltSync(10))
 
     //enter into database
     const newUser = {};
     newUser.username = username
+    newUser.email = req.body.email
     newUser.password = hashedPswrd
     //newUser.accountType = req.body.accountType === 'teacher' ? 'teacher' : 'student' //for mulptiple accounts//
     try {
