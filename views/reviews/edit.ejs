@@ -14,19 +14,16 @@
 <% if (users[i]._id.toString() === reviewUser._id.toString()) {%>
 selected
 <%}%>
-<%=users[i].username%></option>
+<%=users.username%>
 <%}%>
 </select><br>
 <p>TITLE:</p> <input type="text" name="name"> <br>
 <p>REVIEW:</p> <input type="text" name="review"><br>
 <p>RATING:</p> <input type="number" name="rating"><br>
-<p>HELPFUL:</p> <input type="checkbox" name="helpful" value="TRUE"><br>
 <button type="submit">Update Review</button>
 
 
 </form>
 
-<a href="/reviews">See All Dem Reviews</a>
-</main>
 
 <%- include("../partials/footer") %>

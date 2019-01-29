@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  background: #000; 
+  background: #000;
 }
 video { 
   position: fixed;
@@ -15,30 +15,44 @@ video {
 background-size: cover;
 transition: 1s opacity;
 }
-.stopfade { 
-  opacity: .5;
+
+.splash {
+  font-family: 'Dosis', sans-serif;
+  background:none;
+  font-size: 1.5rem;
 }
 
+
 #polina { 
-  font-family: Agenda-Light, Agenda Light, Agenda, Arial Narrow, sans-serif;
-  font-weight:100; 
-  background: rgba(0,0,0,0.3);
   color: white;
   padding: 2rem;
-  width: 33%;
-  margin:2rem;
-  float: right;
+  width: 60%;
+  margin:0 auto;
+  margin-top: 70px;
   font-size: 1.2rem;
+  text-align: center;
 }
 h1 {
-  font-size: 3rem;
-  text-transform: uppercase;
-  margin-top: 0;
+  font-family: 'Pacifico', cursive;
+  font-size: 7rem;
+  margin-top: 160px;
   letter-spacing: .3rem;
 }
+
+h4 {
+  font-family: 'Dosis', sans-serif;
+}
+
+input {
+  font-family: 'Dosis', sans-serif;
+  font-size: .8rem;
+  margin: 5px auto;
+}
+
 #polina button { 
+  font-family: 'Dosis', sans-serif;
   display: block;
-  width: 80%;
+  width: 16%;
   padding: .4rem;
   border: none; 
   margin: 1rem auto; 

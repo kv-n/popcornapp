@@ -32,8 +32,12 @@ router.get('/', async (req, res) => {
 //new route//rendering create form
 router.get('/new', (req, res) => {
     User.find({}, (err, allUsers) => {
+        console.log(req.session.userId)
         res.render('reviews/new', {
-            users: allUsers
+            user: {
+                name: req.session.username, 
+                id: req.session.userId
+            }
         })
     })
 
@@ -41,14 +45,15 @@ router.get('/new', (req, res) => {
 
 
 //create route //create in our database
-router.post('/', (req, res) => {
- User.findById(req.body.userId, (err, foundUser) => {
+router.post('/:id', (req, res) => {
+ User.findById(req.params.id, (err, foundUser) => {
         Review.create(req.body, (err, createdReview) => {
             if (err) {
                 res.send(err)
             } else {
                 foundUser.review.push(createdReview);
                 foundUser.save((err, data) => {
+                    console.log(createdReview)
                     res.redirect('/reviews')
                 })
             }
@@ -80,34 +85,49 @@ router.get('/:id/edit', (req, res) => {
 router.put('/:id', (req, res) => {
     Review.findByIdAndUpdate(req.params.id, req.body, { new: true }, (err, updatedReview) => {
         User.findOne({ 'review._id': req.params.id }, (err, foundUser) => {
-            if (foundUser._id.toString() !== req.body.userId) {
-                foundUser.review.id(req.params.id).remove()
-                foundUser.save((err, savedFoundUser) => {
-                    User.findById(req.body.userId, (err, newUser) => {
-                        newUser.review.push(updatedReview)
-                        newUser.save((err, savedFoundUser) => {
-                            res.redirect(`/reviews/${req.params.id}`)
-                        })
-                    })
-                })
-            } else {
-                foundUser.review.id(req.params.id).remove()
-                foundUser.review.push(updatedReview);
-                foundUser.save((err, data) => {
-                    res.redirect(`/reviews/${updatedReview._id}`)
-                })
-            }
+            console.log('false', updatedReview)
+            foundUser.review.id(req.params.id).remove()
+            foundUser.review.push(updatedReview);
+            foundUser.save((err, data) => {
+                res.redirect(`/reviews/showreview/${updatedReview._id}`)
+            })
         })
     })
 });
 
 //show
 router.get('/:id', (req, res) => {
+    User.findById(req.params.id, (err, user) => {
+        console.log(user.review)
+        res.render('./reviews/show', {
+            reviews: user.review
+        })
+    })
+    // Review.findById(req.params.id, (err, foundReview) => {
+    //     if (err) {
+    //         res.send(err)
+    //     } else {
+    //         res.render('./reviews/showreview', {
+    //             review: foundReview
+    //         })
+    //     }
+    // })
+})
+
+// show review
+router.get('/showreview/:id', (req, res) => {
+    // User.findById(req.params.id, (err, user) => {
+    //     console.log(user.review)
+    //     res.render('./reviews/show', {
+    //         reviews: user.review
+    //     })
+    // })
     Review.findById(req.params.id, (err, foundReview) => {
+        console.log(foundReview)
         if (err) {
             res.send(err)
         } else {
-            res.render('./reviews/show', {
+            res.render('./reviews/showreview', {
                 review: foundReview
             })
         }
@@ -116,21 +136,19 @@ router.get('/:id', (req, res) => {
 
 //delete
 router.delete('/:id', (req, res) => {
-    Review.findByIdAndRemove(req.params.id, (err, deletedReview) => {
-        User.findOneAndRemove({ 'review._id': req.params.id }, (err, foundUser) => {
+    // Review.findByIdAndRemove(req.params.id, (err, deletedReview) => {
+        User.findOne({ 'review._id': req.params.id }, (err, foundUser) => {
+            console.log(foundUser)
             foundUser.review.id(req.params.id).remove()
             foundUser.save((err, data) => {
                 if (err) {
                     res.send(err)
                 } else {
-                    console.log(deletedReview)
                     res.redirect('/reviews')
                 }
             })
-
-
         })
-    })
+    // })
 })
 
 module.exports = router

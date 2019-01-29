@@ -1,17 +1,17 @@
-<%- include('../partials/header', {}) %>
+<%- include('../partials/header') %>
 
 <main class="show-ejs">
 
+<h1>Your Reviews</h1>
 
-<h1 class="show-h1"><%=review.title%></h1>
-<p><%=review.reviews%></p>
-
-
-<form action="/reviews/<%= review._id %>?_method=DELETE" method="POST">
+<% for (let i = 0; i < reviews.length; i++ ) {%>
+<h3><%=reviews[i].title%></h3>
+<p><%=reviews[i].review%></p>
+<form action="/reviews/<%= reviews[i]._id %>?_method=DELETE" method="POST">
 <button type="submit">Delete This Review</button>
 </form>
-<a class="color" href="/reviews/<%=review._id%>/edit"> Edit <%=review.review%></a> |
-<a class="color" href="/reviews">All Dem Movies</a>
+<a href="/reviews/<%=reviews[i]._id%>/edit"> Edit <%=reviews.reviews%></a>
+<%}%>
 
 </main>
 

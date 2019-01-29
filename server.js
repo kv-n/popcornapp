@@ -37,13 +37,27 @@ app.use(bodyParser.urlencoded({extended:true}));
 app.use(methodOverride('_method'))
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/reviews', reviewsRouter);
-app.use('/users', usersRouter);
-app.use('/authentication', authRouter);
+//setting the local variable for the views and point to req.session
+app.use((req, res, next)=> {
+  res.locals.thatUser = req.session.user
+  next()
+})
 
 app.get('/', (req, res) => {
-  res.render('index')
+  res.render('index', {
+    message: req.session.message
+  })
 })
+
+
+app.use('/authentication', authRouter);
+
+// app.use((req, res, next) => req.session.logged ? next() : res.redirect('/'));
+
+app.use('/reviews', reviewsRouter);
+app.use('/users', usersRouter);
+
+
 
 
 // catch 404 and forward to error handler

@@ -1,36 +1,21 @@
 <%- include("./partials/loginheader") %>
+<nav>
+<a class="splash" href="users/new">Log In</a>
+<a class="splash" href="users/new">Register Here</a>
+</nav>
+
 
 
 <video poster=" " id="bgvid" playsinline autoplay muted loop>
 
-  <!-- 
--  <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Dosis" rel="stylesheet">
-    <video poster="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/polina.jpg" id="bgvid" playsinline autoplay muted loop>
-    <link href="https://fonts.googleapis.com/css?family=Work+Sans" rel="stylesheet">Video needs to be muted, since Chrome 66+ will not autoplay video with sound.
-WCAG general accessibility recommendation is that media such as background video play through only once. Loop turned on for the purposes of illustration; if removed, the end of the video will fade in the same way created by pressing the "Pause" button  -->
-<source src="https://s3.amazonaws.com/freestock-transcoded-videos-prod/transcoded/freestock_v5245247.mp4" type="video/webm">
-<source src="https://s3.amazonaws.com/freestock-transcoded-videos-prod/transcoded/freestock_v5245247.mp4" type="video/mp4">
+  
+<source src="/images/popcorn.mp4" type="video/webm">
+<source src="/images/popcorn.mp4" type="video/mp4">
+
+<%=message%>
 
 </video>
 <div id="polina">
 <h1>Popcorn</h1>
-<h4>Login</h4>
-<form action="/users" method="POST">
-  <input type="text" name="username" placeholder="username"><br>
-  <input type="email" name="email" placeholder="email"><br>
-  <input type="password" name="password" placeholder="password"><br>
-  <button type="submit">Login</button>
-</form>
-
-
-<h4>Registration</h4>
-<form action="/users" method="POST">
-  <input type="text" name="username" placeholder="username"><br>
-  <input type="email" name="email" placeholder="email"><br>
-  <input type="password" name="password" placeholder="password"><br>
-  <button type="submit">Registration</button>
-</form>
-</div>
 
 <%- include("./partials/footer") %>

@@ -3,31 +3,24 @@ const router = express.Router();
 const User = require('../models/users')
 const Review = require('../models/reviews')
 
+router.get('/new', (req, res) => {
+    res.render('users/new', {
+        message: req.session.message
+    })
+})
+
 
 router.get('/', async (req, res) => {
     try {
         const allUsers = await User.find({})
         res.render("users/index", {
-            users: allUsers
+            users: allUsers,
+            username: req.session.username
         })
     } catch (err) {
         res.send(err)
     }
 })
-
-
-// router.get('/new', (req, res) => {
-//     res.render('users/new')
-// })
-
-// router.post('/', async (req, res) => {
-//     try {
-//         const createdUser = await User.create(req.body)
-//         res.redirect('/users')
-//     } catch (err) {
-//         res.send(err)
-//     }
-// })
 
 
 //update form
@@ -57,6 +50,8 @@ router.put('/:id', (req, res) => {
 })
 
 
+
+//delete get and route
 router.get('/:id', (req, res) => {
     User.findById(req.params.id, (err, foundUser) => {
         if (err) {
@@ -70,8 +65,9 @@ router.get('/:id', (req, res) => {
     })
 })
 
+
 router.delete('/:id', (req, res) => {
-    User.findOneAndRemove(req.params.id, (err, deletedUser) => {
+    User.findOneAndDelete({ _id: req.params.id }, (err, deletedUser) => {
         const userIds = [];
         for (let i = 0; i < deletedUser.review.length; i++) {
             userIds.push(deletedUser.review[i]._id)
@@ -81,11 +77,8 @@ router.delete('/:id', (req, res) => {
             {
                 _id: { $in: userIds }
             },
-            (err, data) => {
-                res.redirect('/users')
-            }
+            (err, data) => res.redirect('/users')
         )
-
     })
 })
 

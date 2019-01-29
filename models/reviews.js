@@ -4,7 +4,6 @@ const reviewSchema = new mongoose.Schema({
     title: String,
     review: String,
     rating: Number,
-    helpful: String,
     movieTitle: String,
 })
 

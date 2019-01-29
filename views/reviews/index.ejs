@@ -1,10 +1,7 @@
 <%- include("../partials/header") %>
 
-<h1 class="index-h1 fade-in">All Dem Reviews</h1>
-<a class="color" href="/reviews">HOME</a> |
-<a class="color" href="/reviews/new" alt="Enter New Image">ENTER A REVIEW</a> |
-<a class="color" href="/users/">USERS</a>
-<main class="index">
+<h1>All Dem Reviews</h1>
+<main>
 
 <% for(let i = 0; i < users.length; i++){ %>
 <%= users[i].username.toUpperCase() %>

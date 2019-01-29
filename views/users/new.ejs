@@ -1,13 +1,36 @@
-<%- include("../partials/header") %>
+<%- include("../partials/loginheader") %>
 
-<main>
-<h1> New Users </h1>
-<form action="/users" method="post">
-<p>Username:</p> <input type="text" name="username"> <br>
-<p>Email:</p> <input type="email" name="email"><br>
-<p>Password:</p> <input type="password" name="password"><br>
-<button type="submit">New User</button>
+
+<div id="polina">
+
+
+
+<h4>LOGIN</h4>
+
+
+
+<form action="/authentication/login" method="POST">
+  <input type="text" name="username" placeholder="username"><br>
+  <input type="email" name="email" placeholder="email"><br>
+  <input type="password" name="password" placeholder="password"><br>
+  <button type="submit">Login</button>
 </form>
-</main>
+
+<%=message%>
+
+<button onclick="myFunction()">Register Here</button>
+
+<div id="myDIV" style="display: none;">
+<h4>REGISTER</h4>
+<form action="/authentication" method="POST">
+<input type="text" name="username" placeholder="username" /><br />
+<input type="email" name="email" placeholder="email" /><br />
+<input type="password" name="password" placeholder="password" /><br />
+<button type="submit">Register</button>
+</form>
+</div>
+
+
+</div>
 
 <%- include("../partials/footer") %>
