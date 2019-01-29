@@ -6,9 +6,14 @@
 
 <div>
 <% for(let i = 0; i < users.length; i++){ %>
-Username: <a class="color" href="/users/<%=users[i]._id%>"><%= users[i].username %></a><br>
+    Username: <a class="color" href="/users/<%=users[i]._id%>"><%= users[i].username %></a><br>
 <%}%>
 </div>
+
+<% latestMovies.forEach(m => { %> 
+    <p><%= m.title %></p>
+    <a href='/movies/<%=m.id%>'><img src = "https://image.tmdb.org/t/p/w200/<%= m.poster_path %>"/></a>
+<% }) %>
 
 </main>
 

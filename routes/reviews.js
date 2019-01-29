@@ -3,11 +3,7 @@ const router = express.Router()
 //model data goes here
 const Review = require('../models/reviews')
 const User = require('../models/users')
-//api key and axios
-// const axios = require('axios')
-// const token = process.env.MOVIEDBAPI;
 
-// const rootURL = 'https://api.themoviedb.org'
 
 //ROUTES
 

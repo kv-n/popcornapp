@@ -6,16 +6,14 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var bodyParser = require('body-parser')
-// require('dotenv').config();
-
-var authRouter = require('./routes/authentication')
-
-var reviewsRouter = require('./routes/reviews');
-var usersRouter = require('./routes/users');
 var methodOverride = require('method-override');
 var session = require('express-session');
-
+require('dotenv').config();
 var app = express();
+
+
+
+
 
 app.use(session({
   secret: "This is a random string secret",
@@ -43,6 +41,13 @@ app.use((req, res, next)=> {
   next()
 })
 
+
+//routes
+var authRouter = require('./routes/authentication')
+var reviewsRouter = require('./routes/reviews');
+var usersRouter = require('./routes/users');
+var movieRouter = require('./routes/movies')
+
 app.get('/', (req, res) => {
   res.render('index', {
     message: req.session.message
@@ -56,6 +61,7 @@ app.use('/authentication', authRouter);
 
 app.use('/reviews', reviewsRouter);
 app.use('/users', usersRouter);
+app.use('/movies', movieRouter);
 
 
 

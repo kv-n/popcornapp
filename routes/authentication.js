@@ -48,7 +48,7 @@ router.post('/login', async (req, res) => {
     try {
         //find logged in user //getting username from req.body (username was attached via form and kept in req.body)
         const loggedUser = await User.findOne({ username: req.body.username })
-        console.log(loggedUser)
+        // console.log(loggedUser)
         //if user exists
         if (loggedUser) {
             //check if the passwords match, if they do, redirect to page, if not, keep on splash page with message

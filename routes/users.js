@@ -2,6 +2,8 @@ const express = require('express');
 const router = express.Router();
 const User = require('../models/users')
 const Review = require('../models/reviews')
+const { getLatestMovies } = require('./api')
+
 
 router.get('/new', (req, res) => {
     res.render('users/new', {
@@ -13,9 +15,12 @@ router.get('/new', (req, res) => {
 router.get('/', async (req, res) => {
     try {
         const allUsers = await User.find({})
+        const latestMovies = await getLatestMovies()
+        console.log(latestMovies)
         res.render("users/index", {
             users: allUsers,
-            username: req.session.username
+            username: req.session.username,
+            latestMovies
         })
     } catch (err) {
         res.send(err)
