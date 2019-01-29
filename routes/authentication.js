@@ -34,7 +34,7 @@ router.post('/', async (req, res) => {
         req.session.user = createdUser
         //req.session.accountype = createdUser.accountype //for multiple accounts//
         //redirect to specific index (ejs)
-        res.redirect('/users')
+        res.redirect('/movies')
     } catch (err) {
         res.send('this is the err' + err)
     }
@@ -63,7 +63,7 @@ router.post('/login', async (req, res) => {
                 req.session.user = loggedUser
                 // res.locals.username = loggedUser.username
                 // console.log(res.locals, "Hitting this!!!")
-                res.redirect('/users')
+                res.redirect('/movies')
             } else {
                 req.session.message = "YOUR PASSWORD IS INCORRECT"
                 res.redirect('/users/new')

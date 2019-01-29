@@ -3,7 +3,7 @@
      <main>
 
      <form action="/reviews/<%=user.id%>" method="POST">
-     <%=user.name%>  
+     <%=user.name.toUpperCase()%>  
      <br>
      <p>TITLE:</p> <input type="text" name="title">
      <p>REVIEW:</p> <input type="text" name="review">

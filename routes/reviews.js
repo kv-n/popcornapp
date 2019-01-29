@@ -3,13 +3,13 @@ const router = express.Router()
 //model data goes here
 const Review = require('../models/reviews')
 const User = require('../models/users')
+const Movie = require('./movies')
 
 
 //ROUTES
 
 //index
 router.get('/', async (req, res) => {
-
     try {
         const allUsers = await User.find({});
         res.render('reviews/index', {
@@ -41,15 +41,16 @@ router.get('/new', (req, res) => {
 
 
 //create route //create in our database
-router.post('/:id', (req, res) => {
+router.post('/:id/:movieId', (req, res) => {
  User.findById(req.params.id, (err, foundUser) => {
         Review.create(req.body, (err, createdReview) => {
             if (err) {
                 res.send(err)
             } else {
+                createdReview.movieId = req.params.movieId
+                createdReview.save()
                 foundUser.review.push(createdReview);
                 foundUser.save((err, data) => {
-                    console.log(createdReview)
                     res.redirect('/reviews')
                 })
             }

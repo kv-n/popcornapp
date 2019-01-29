@@ -1,13 +1,19 @@
-<h1>MOVIE SHOW PAGE</h1>
+<%- include("../partials/header") %>
 
-<%=movie.title%>
+
+<section class = "movie-show">
+
+<div>
+<h2><%=movie.title%></h2>
 <img src = "https://image.tmdb.org/t/p/w200/<%= movie.poster_path %>"/>
+<p><%=movie.overview%></p>
+</div>
 
-
-<h1>New Review</h2>
+<div class = "review-form">
+<h2>New Review</h2>
      <main>
 
-     <form action="/reviews/<%=user.id%>" method="POST">
+     <form action="/reviews/<%=user.id%>/<%= movie.id %>    " method="POST">
      <%=user.name%>  
      <br>
      <p>TITLE:</p> <input type="text" name="title">
@@ -23,3 +29,23 @@
      <button type="submit">Enter New Review</button>
      </form>
      </main>
+     </div>
+
+     </section>
+
+     <section class = "reviews">
+     <%allUsersWithReview.forEach(u => { %>
+        <% u.review.forEach(r => { %> 
+            <% if (r.movieId === movie.id) { %> 
+            <div class="user-reviews">
+                <p>User: <%= u.username %></p>
+                <p>Review Title: <%= r.title %></p>
+                <p><%= r.review %></p>
+                <p><%= r.rating %></p>
+                </div>
+            <% } %>
+        <% }) %>
+     <%})%>
+     </section>
+
+     <%- include("../partials/footer") %>

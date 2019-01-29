@@ -1,0 +1,19 @@
+<%- include("../partials/movieindex") %>
+
+
+
+<h1>Movies</h1>
+
+<main>
+
+<% latestMovies.forEach(m => { %> 
+    <div class="each-movie">
+    <a href='/movies/<%=m.id%>'><img src = "https://image.tmdb.org/t/p/w200/<%= m.poster_path %>"/></a>
+    </div>
+<% }) %>
+
+</main>
+
+
+
+<%- include("../partials/footer") %>
