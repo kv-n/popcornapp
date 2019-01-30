@@ -28,7 +28,7 @@ transition: 1s opacity;
   padding: 2rem;
   width: 60%;
   margin:0 auto;
-  margin-top: 70px;
+  margin-top: 200px;
   font-size: 1.2rem;
   text-align: center;
 }
@@ -78,6 +78,11 @@ a {
 a:hover{
   background:rgba(0,0,0,0.9);
 }
+
+.login {
+  margin-top: 400px;
+}
+
 @media screen and (max-width: 500px) { 
   div{width:70%;} 
 }

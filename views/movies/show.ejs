@@ -4,7 +4,7 @@
 <section class = "movie-show">
 
 <div class="movie-review-page">
-<h2><%=movie.title%></h2>
+<h2><%=movie.title.toUpperCase()%></h2>
 <img src = "https://image.tmdb.org/t/p/w200/<%= movie.poster_path %>"/>
 <p class="p-review"><%=movie.overview%></p>
 </div>
