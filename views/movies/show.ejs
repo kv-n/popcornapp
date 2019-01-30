@@ -1,11 +1,10 @@
-<%- include("../partials/movieshowpage", {title: 'Movie Show'}) %>
+<%- include("../partials/header", {title: 'Movie'}) %>
 
 
 <section class = "movie-show">
 <div class="grid">
     <div class="grid__item panel-1">
         <div class="content">
-            <h2><%=movie.title.toUpperCase()%></h2>
             <img src = "https://image.tmdb.org/t/p/w200/<%= movie.poster_path %>"/>
             <p class="p-review"><%=movie.overview%></p>
     </div>
@@ -13,7 +12,12 @@
     <div class="grid__item panel-2">
         <div class="content">
 
-        <h2>Reviews</h2>
+        
+<h2>USER REVIEWS</h2>
+
+<div class="card">
+<div class="container">
+
 <%allUsersWithReview.forEach(u => { %>
 <% u.review.forEach(r => { %> 
     <% if (r.movieId === movie.id) { %> 
@@ -26,29 +30,31 @@
     <% } %>
 <% }) %>
 <%})%>
+</div>
+</div>
 
-            <div id="polina" class = "review-form">
+<div id="polina">
 
-     <button onclick="myFunction()">New Review</button>
-     <div id="myDIV" style="display:none">
+<button onclick="myFunction()">New Review</button>
+<div id="myDIV" style="display:none">
 
-     <form action="/reviews/<%=user.id%>/<%= movie.id %>/<%= movie.title %>" method="POST">
-     Username: <%=user.name.toUpperCase()%>  
-     <br>
-     <p>TITLE:</p> <input type="text" name="title">
-     <p>REVIEW:</p> <input type="text" name="review">
-     <p>RATING:</p> 
-     <select name="rating">
-     <option value = 1> This popcorn is stale...</option>
-     <option value = 2> This popcorn needs butter </option>
-     <option value = 3> This popcorn was okay. </option>
-     <option value = 4> This popcorn was great! </option>
-     <option value = 5> This is the best !@#$@# Popcorn!</option>
-     </select><br><br>
-     <button type="submit">Enter New Review</button>
-     </div>
-     </form>
-     </div>
+<form action="/reviews/<%=user.id%>/<%= movie.id %>/<%= movie.title %>" method="POST">
+Username: <%=user.name.toUpperCase()%>  
+<br>
+<p>TITLE:</p> <input type="text" name="title">
+<p>REVIEW:</p> <input type="text" name="review">
+<p>RATING:</p> 
+<select name="rating">
+<option value = 1> This popcorn is stale...</option>
+<option value = 2> This popcorn needs butter </option>
+<option value = 3> This popcorn was okay. </option>
+<option value = 4> This popcorn was great! </option>
+<option value = 5> This is the best !@#$@# Popcorn!</option>
+</select><br><br>
+<button type="submit">Enter New Review</button>
+</div>
+</form>
+</div>
 
      </section>
         </div>

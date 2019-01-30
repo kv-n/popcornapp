@@ -47,14 +47,6 @@
 }
 
 
-
-.movie-show {
-    display: flex;
-    flex-wrap: wrap;
-    margin: 40px;
-    justify-content: center;
-}
-
 .review-form {
     padding-left: 40px;
     margin: 0;

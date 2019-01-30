@@ -16,7 +16,7 @@
     <link rel="stylesheet" type="text/css" href="../stylesheets/style.css">
   <% } else if (title === 'Movie Index') { %> 
     <link rel="stylesheet" type="text/css" href="/../stylesheets/movieindex.css">
-  <% } else if (title === 'Movie') { %> 
+  <% } else if (title === 'Movie Show') { %> 
     <link rel="stylesheet" type="text/css" href="/../stylesheets/movieshow.css">
   <% } else if (title === 'Your Reviews') { %> 
     <link rel="stylesheet" type="text/css" href="/../stylesheets/mainsite.css">
@@ -27,30 +27,3 @@
 <title><%= title.toUpperCase() %></title>
 </head>
 <body> 
-
-
-
-<header>
-<div class="nav">
-  <div class="nav-header">
-    <div class="nav-title">
-      POPCORN
-    </div>
-  </div>
-  <div class="nav-btn">
-    <label for="nav-check">
-      <span></span>
-      <span></span>
-      <span></span>
-    </label>
-  </div>
-  <input type="checkbox" id="nav-check">
-  <div class="nav-links">
-  <a href="/movies">POPULAR MOVIES &nbsp |</a> 
-  <a href="/movies/top-rated">TOP RATED MOVIES &nbsp |</a> 
-  <a href="/reviews/<%= thatUser && thatUser._id%>"><%= thatUser && thatUser.username.toUpperCase()%> &nbsp |</a>
-  <a href="/authentication/logout" alt="logout">LOGOUT &nbsp</a>
-  </div>
-</div>
-</header>
-
