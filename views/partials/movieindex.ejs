@@ -29,7 +29,7 @@
   <input type="checkbox" id="nav-check">
   <div class="nav-links">
   <a href="/movies">MOVIES &nbsp |</a> 
-  <a href="/reviews/<%=thatUser._id%>"><%=thatUser.username.toUpperCase()%> &nbsp |</a>
+  <a href="/reviews/<%= thatUser && thatUser._id%>"><%= thatUser && thatUser.username.toUpperCase()%> &nbsp |</a>
   <a href="/authentication/logout" alt="logout">LOGOUT &nbsp</a>
   </div>
 </div>

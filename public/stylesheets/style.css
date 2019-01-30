@@ -23,6 +23,8 @@ transition: 1s opacity;
 }
 
 
+
+
 #polina { 
   color: white;
   padding: 2rem;
@@ -37,6 +39,11 @@ h1 {
   font-size: 7rem;
   margin-top: 160px;
   letter-spacing: .3rem;
+  color: white;
+  padding: 2rem;
+  width: 60%;
+  margin:0 auto;
+  text-align: center;
 }
 
 h4 {

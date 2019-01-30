@@ -8,10 +8,28 @@
     <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Dosis" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Work+Sans" rel="stylesheet">
+    <script src="../javascripts/trailer.js"></script>
 
+  <% if(title === 'Welcome') { %> 
+    <link rel="stylesheet" type="text/css" href="../stylesheets/style.css">
+  <% } else if (title === 'Login | Register') { %> 
+    <link rel="stylesheet" type="text/css" href="../stylesheets/style.css">
+  <% } else if (title === 'Movie Index') { %> 
+    <link rel="stylesheet" type="text/css" href="/../stylesheets/movieindex.css">
+  <% } else if (title === 'Movie Show') { %> 
+    <link rel="stylesheet" type="text/css" href="/../stylesheets/movieshow.css">
+  <% } else if (title === 'Your Reviews') { %> 
+    <link rel="stylesheet" type="text/css" href="/../stylesheets/mainsite.css">
+  <% } else { %> 
+    <link rel="stylesheet" type="text/css" href="/../stylesheets/mainsite.css">
+  <% }%> 
 
+<title><%= title.toUpperCase() %></title>
 </head>
 <body> 
+
+
+
 <header>
 <div class="nav">
   <div class="nav-header">
@@ -28,9 +46,11 @@
   </div>
   <input type="checkbox" id="nav-check">
   <div class="nav-links">
-  <a href="/movies">MOVIES &nbsp |</a> 
-  <a href="/reviews/<%=thatUser._id%>"><%=thatUser.username.toUpperCase()%> &nbsp |</a>
+  <a href="/movies">POPULAR MOVIES &nbsp |</a> 
+  <a href="/movies/top-rated">TOP RATED MOVIES &nbsp |</a> 
+  <a href="/reviews/<%= thatUser && thatUser._id%>"><%= thatUser && thatUser.username.toUpperCase()%> &nbsp |</a>
   <a href="/authentication/logout" alt="logout">LOGOUT &nbsp</a>
   </div>
 </div>
 </header>
+

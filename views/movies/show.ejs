@@ -1,19 +1,37 @@
-<%- include("../partials/movieshowpage") %>
+<%- include("../partials/movieshowpage", {title: 'Movie Show'}) %>
 
 
 <section class = "movie-show">
+<div class="grid">
+    <div class="grid__item panel-1">
+        <div class="content">
+            <h2><%=movie.title.toUpperCase()%></h2>
+            <img src = "https://image.tmdb.org/t/p/w200/<%= movie.poster_path %>"/>
+            <p class="p-review"><%=movie.overview%></p>
+    </div>
+        </div>
+    <div class="grid__item panel-2">
+        <div class="content">
 
-<div class="movie-review-page">
-<h2><%=movie.title.toUpperCase()%></h2>
-<img src = "https://image.tmdb.org/t/p/w200/<%= movie.poster_path %>"/>
-<p class="p-review"><%=movie.overview%></p>
-</div>
+        <h2>Reviews</h2>
+<%allUsersWithReview.forEach(u => { %>
+<% u.review.forEach(r => { %> 
+    <% if (r.movieId === movie.id) { %> 
+    <div class="user-reviews">
+        <p>User: <%= u.username %></p>
+        <p>Review Title: <%= r.title %></p>
+        <p>Review: <%= r.review %></p>
+        <p>Rating: <%= r.rating %></p>
+        </div>
+    <% } %>
+<% }) %>
+<%})%>
 
-<div id="polina" class = "review-form">
-     <main>
+            <div id="polina" class = "review-form">
 
      <button onclick="myFunction()">New Review</button>
      <div id="myDIV" style="display:none">
+
      <form action="/reviews/<%=user.id%>/<%= movie.id %>/<%= movie.title %>" method="POST">
      Username: <%=user.name.toUpperCase()%>  
      <br>
@@ -30,24 +48,12 @@
      <button type="submit">Enter New Review</button>
      </div>
      </form>
-     </main>
      </div>
 
      </section>
+        </div>
+    </div>
+</div>
 
-     <section class = "reviews">
-     <%allUsersWithReview.forEach(u => { %>
-        <% u.review.forEach(r => { %> 
-            <% if (r.movieId === movie.id) { %> 
-            <div class="user-reviews">
-                <p>User: <%= u.username %></p>
-                <p>Review Title: <%= r.title %></p>
-                <p>Review: <%= r.review %></p>
-                <p>Rating: <%= r.rating %></p>
-                </div>
-            <% } %>
-        <% }) %>
-     <%})%>
-     </section>
 
-     <%- include("../partials/footer") %>
+<%- include("../partials/footer") %>

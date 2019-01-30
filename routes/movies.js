@@ -6,11 +6,26 @@ const User = require('../models/users')
 
 const rootUrl = 'https://api.themoviedb.org/3/'
 
-const topMovies = `${rootUrl}movie/top_rated?api_key=${token}&page=4`
+const popularMovies = `${rootUrl}movie/popular?api_key=${token}&page=1`
+const topMovies= `${rootUrl}movie/top_rated?api_key=${token}&page=1`
 
-// show all top movies
+
+
+// show all popular movies
 // route /movies
 router.get('/', (req, res) => {
+    axios.get(popularMovies)
+        .then(response => {
+            console.log(response)
+            res.render('movies/index', {
+                latestMovies: response.data.results
+            })
+        }).catch(err => console.log(err))
+})
+
+//show all top rated
+//route /movies/toprated
+router.get('/top-rated', (req, res) => {
     axios.get(topMovies)
         .then(response => {
             console.log(response)
@@ -19,6 +34,7 @@ router.get('/', (req, res) => {
             })
         }).catch(err => console.log(err))
 })
+
 
 
 // show one movie

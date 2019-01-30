@@ -66,19 +66,6 @@ router.get('/:id/edit', (req, res) => {
                 review: foundReview
             })
         }
-        // User.find({}, (err, allUsers) => {
-        //     User.findOne({ 'review._id': req.params.id }, (err, reviewUser) => {
-        //         if (err) {
-        //             res.send(err)
-        //         } else {
-        //             res.render('reviews/edit', {
-        //                 review: foundReview,
-        //                 users: allUsers,
-        //                 reviewUser: reviewUser
-        //             })
-        //         }
-        //     })
-        // })
     })
 })
 

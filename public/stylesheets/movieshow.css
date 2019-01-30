@@ -3,9 +3,7 @@
     margin: 0;
 }
 
-html {
-    height: 100%;
-}
+
 body {
     font-family: 'Dosis', sans-serif;
 }
@@ -24,29 +22,19 @@ h1 {
 h2 {
     font-family: 'Dosis', sans-serif;
     text-align: center;
-    padding-top: 10%;
+    padding-top: 2%;
     padding-bottom: 2%;
 }
 
-img {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
 
 .review-form{
     align-content: center;
     text-align: center;
 }
 
-.movie-review-page {
-    padding: 5px;
-    font-family: 'Dosis', sans-serif;
-    
-}
 
 .user-reviews {
-    padding: 30px;
+    padding: 50px;
 }
 
 .p-review {
@@ -57,15 +45,13 @@ img {
     padding: 5px;
 }
 
-
-.each-movie {
-    padding: 8px;
+img {
+    margin-left: 50px;
 }
 
 #polina button { 
 font-family: 'Dosis', sans-serif;
 display: block;
-width: 16%;
 padding: .4rem;
 border: none; 
 margin: 1rem auto; 
@@ -80,8 +66,6 @@ transition: .3s background;
 #polina button:hover { 
     background: rgba(0,0,0,0.5);
 }
-
-
 
 
 
@@ -132,3 +116,41 @@ transition: .3s background;
 .nav > #nav-check {
     display: none;
 }
+
+
+
+
+
+  
+.grid {
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.grid__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.panel-1 {
+    background: #4dab6b;
+    color: #fff;
+}
+
+.content {
+    max-width: 300px;
+}
+
+
+
+
+
+
+
+
+
+
+
