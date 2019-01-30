@@ -6,8 +6,8 @@ const User = require('../models/users')
 
 const rootUrl = 'https://api.themoviedb.org/3/'
 
-const popularMovies = `${rootUrl}movie/popular?api_key=${token}&page=1`
-const topMovies= `${rootUrl}movie/top_rated?api_key=${token}&page=1`
+const popularMovies = `${rootUrl}movie/popular?api_key=${token}&page=2`
+const topMovies= `${rootUrl}movie/top_rated?api_key=${token}&page=2`
 
 
 

@@ -1,0 +1,116 @@
+/*
+** reseting 
+*/
+
+a{
+color: #2ecc71;
+font-family: tahoma;
+}
+/*
+** timeline css codes
+*/
+.comments {
+width: 700px;
+margin: 100px auto;
+padding: 0px 10px 0px 50px;
+border-left: 2px solid #34495e;
+}
+
+p {
+padding: 20px;
+background: #34495e;
+color: #ecf0f1;
+font-family: tahoma;
+line-height: 1.7;
+position: relative;
+}
+
+p > span {
+    display: block;
+    padding: 5px 5px 10px 5px;
+    color: #7f8c8d;
+    font-style: italic;
+    font-size: 13px;
+}
+
+p > button{
+background: #2ecc71;
+color: #fff;
+width: 100px;
+padding: 10px;
+border-radius: 2px;
+border: 0;
+font-weight: bold;
+cursor: pointer;
+}
+p:before{
+content: "";
+display: block;
+width: 20px;
+height: 20px;
+border-radius: 50%;
+background: #2ecc71;
+top: -9px;
+left: -61px;
+position: absolute;
+}
+p:after{
+content: "";
+display: block;
+width: 0;
+height: 0;
+border-style: solid;
+border-color: #34495e #34495e transparent       transparent ;
+border-width: 15px;
+position: absolute;
+top: 0px;
+left: -29px;
+}
+
+* {
+box-sizing: border-box;
+margin: 0;
+}
+
+.nav {
+font-family: 'Dosis', sans-serif;
+height: 50px;
+width: 100%;
+background-color: #242222;
+position: relative;
+}
+
+.nav > .nav-header {
+display: inline;
+}
+
+.nav > .nav-header > .nav-title {
+display: inline-block;
+font-size: 22px;
+color: #fff;
+padding: 10px 10px 10px 10px;
+}
+
+.nav > .nav-btn {
+display: none;
+}
+
+.nav > .nav-links {
+float: right;
+font-size: 18px;
+}
+
+.nav > .nav-links > a {
+display: inline-block;
+padding: 13px 10px 13px 10px;
+text-decoration: none;
+color: #efefef;
+}
+
+.nav > .nav-links > a:hover {
+background-color: rgba(0, 0, 0, 0.3);
+}
+
+.nav > #nav-check {
+display: none;
+}

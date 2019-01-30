@@ -1,11 +1,11 @@
-<%- include("../partials/header") %>
+<%- include("../partials/header", {title: 'Edit'}) %>
 
 <main>
 
 <h1>Edit This Review</h1>
 
 
-<form action="/reviews/<%=review._id%>?method=PUT" method="POST">
+<form action="/reviews/<%=review._id%>?_method=PUT" method="POST">
 <p>TITLE:</p> <input type="text" name="title" value="<%=review.title%>">
 <p>REVIEW:</p> <input type="text" name="review" value="<%=review.review%>">
 <p>RATING:</p> 

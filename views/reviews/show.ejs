@@ -4,16 +4,35 @@
 
 <h1>Your Reviews</h1>
 
-<% for (let i = 0; i < reviews.length; i++ ) {%>
-<h2>Movie Title: <%=reviews[i].movieTitle%></h2>
-<h3>Review Title: <%=reviews[i].title%></h3>
-<p>Review: <%=reviews[i].review%></p>
-<form action="/reviews/<%= reviews[i]._id %>?_method=DELETE" method="POST">
-<button type="submit">Delete This Review</button>
-</form>
-<a href="/reviews/<%=reviews[i]._id%>/edit"> Edit <%=reviews.reviews%></a>
-<%}%>
 
-</main>
+<div class="comments">
+  <% for (let i = 0; i < reviews.length; i++ ) {%>
+  <h2>Movie Title: <%=reviews[i].movieTitle%></h2>
+  <h3>Review Title: <%=reviews[i].title%></h3>
+  <p>Review: <%=reviews[i].review%></p>
+  <form action="/reviews/<%= reviews[i]._id %>?_method=DELETE" method="POST">
+  <button type="submit">Delete This Review</button>
+  </form>
+  <a href="/reviews/<%=reviews[i]._id%>/edit"> Edit <%=reviews.reviews%></a>
+  <%}%>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <%- include('../partials/footer') %>

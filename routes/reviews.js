@@ -69,29 +69,18 @@ router.get('/:id/edit', (req, res) => {
     })
 })
 
-//update//edits into database
-router.put('/:id', (req, res) => {
-    Review.findByIdAndUpdate(req.params.id, req.body, { new: true }, (err, updatedReview) => {
-        if(err){
-            res.send(err)
-        } else {
-            res.redirect(`/reviews/${updatedReview._id}`)
-        }
-    })
-});
 
 //show
 router.get('/:id', (req, res) => {
     User.findById(req.params.id, (err, user) => {
         res.render('./reviews/show', {
             reviews: user.review,
-            
         })
     })
 })
 
 // show review
-router.get('/showreview/:id', (req, res) => {
+router.get('/review/:id', (req, res) => {
     Review.findById(req.params.id, (err, foundReview) => {
         console.log(foundReview)
         if (err) {
@@ -104,18 +93,37 @@ router.get('/showreview/:id', (req, res) => {
     })
 })
 
+//update//edits into database
+router.put('/:id', async (req, res) => {
+    try {
+        const updatedReview = await Review.findByIdAndUpdate(req.params.id, req.body, { new: true })
+        const foundUser = await User.findById(req.session.user.id)
+        // foundUser.review === [] find where the old review is and delete and then add the updated review
+        foundUser.review.id(req.params.id).remove()
+        foundUser.review.push(updatedReview)
+        foundUser.save((err, data) => {
+            res.redirect(`/reviews/${req.session.userId}`)
+        })
+    }catch (err){
+        res.send(err)
+    }
+});
+
+
 //delete
 router.delete('/:id', (req, res) => {
-        User.findOne({ 'review._id': req.params.id }, (err, foundUser) => {
-            foundUser.review.id(req.params.id).remove()
-            foundUser.save((err, data) => {
-                if (err) {
-                    res.send(err)
-                } else {
-                    res.redirect(`/reviews/${foundUser._id}`)
-                }
-            })
+    //finding the review document id
+    User.findOne({ 'review._id': req.params.id }, (err, foundUser) => {
+        //
+        foundUser.review.id(req.params.id).remove()
+        foundUser.save((err, data) => {
+            if (err) {
+                res.send(err)
+            } else {
+                res.redirect(`/reviews/${foundUser._id}`)
+            }
         })
+    })
 })
 
 module.exports = router

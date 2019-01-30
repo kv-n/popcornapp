@@ -22,10 +22,11 @@ body {
 }
 
 h1 {
-    font-family: 'Pacifico', cursive;
+    font-family: 'Montserrat', sans-serif;
     text-align: center;
     font-size: 4rem;
-    padding-top: 4%;
+    padding-top: 6%;
+    padding-bottom: 2%;
 }
 
 .each-movie {

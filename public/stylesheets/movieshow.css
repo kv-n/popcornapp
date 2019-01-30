@@ -27,7 +27,7 @@ h2 {
 }
 
 form {
-    padding: 4%;
+    padding: 2%;
 }
 
 
@@ -54,7 +54,6 @@ font-family: 'Dosis', sans-serif;
 display: block;
 padding: .4rem;
 border: none; 
-margin-top: 1rem; 
 margin-left: 1rem;
 font-size: 1.3rem;
 color: black;
@@ -157,12 +156,7 @@ transition: .3s background;
 
 
 .card {
-    transition: 0.3s;
     width: 100%;
-  }
-  
-  .card:hover {
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
   }
   
   .container {
