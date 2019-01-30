@@ -4,26 +4,19 @@
 
 <h1>Edit This Review</h1>
 
-<form action="/reviews/<%=review._id%>?_method=PUT" method="POST">
-<select name="userId">
 
-<%for(let i = 0; i <users.length; i++) {%>
-
-<option value="<%=users[i]._id%>">
-
-<% if (users[i]._id.toString() === reviewUser._id.toString()) {%>
-selected
-<%}%>
-<%=users.username%>
-<%}%>
-</select><br>
-<p>TITLE:</p> <input type="text" name="name"> <br>
-<p>REVIEW:</p> <input type="text" name="review"><br>
-<p>RATING:</p> <input type="number" name="rating"><br>
-<button type="submit">Update Review</button>
-
-
+<form action="/reviews/<%=review._id%>?method=PUT" method="POST">
+<p>TITLE:</p> <input type="text" name="title" value="<%=review.title%>">
+<p>REVIEW:</p> <input type="text" name="review" value="<%=review.review%>">
+<p>RATING:</p> 
+<select name="rating">
+<option value = 1> This popcorn is stale...</option>
+<option value = 2> This popcorn needs butter </option>
+<option value = 3> This popcorn was okay. </option>
+<option value = 4> This popcorn was great! </option>
+<option value = 5> This is the best !@#$@# Popcorn!</option>
+</select><br><br>
+<button type="submit">Enter New Review</button>
 </form>
-
 
 <%- include("../partials/footer") %>

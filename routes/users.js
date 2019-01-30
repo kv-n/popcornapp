@@ -34,7 +34,6 @@ router.get('/:id/edit', (req, res) => {
         if (err) {
             res.send(err)
         } else {
-            console.log(editedUser)
             res.render('users/edit', {
                 user: editedUser
             })
@@ -48,7 +47,6 @@ router.put('/:id', (req, res) => {
         if (err) {
             res.send(err)
         } else {
-            console.log(editedUser)
             res.redirect('/users')
         }
     })
@@ -62,7 +60,6 @@ router.get('/:id', (req, res) => {
         if (err) {
             res.send(err)
         } else {
-            console.log(foundUser)
             res.render('users/show', {
                 user: foundUser
             })

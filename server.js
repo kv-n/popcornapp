@@ -35,11 +35,18 @@ app.use(bodyParser.urlencoded({extended:true}));
 app.use(methodOverride('_method'))
 app.use(express.static(path.join(__dirname, 'public')));
 
-//setting the local variable for the views and point to req.session
+// setting the local variable for the views and point to req.session
 app.use((req, res, next)=> {
+  //req.locals
   res.locals.thatUser = req.session.user
   next()
 })
+
+// app.use(session({
+//   secret: "This is a secret string",
+//   resave: false,
+//   saveUninitialized: false
+// }))
 
 
 //routes

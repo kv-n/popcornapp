@@ -12,6 +12,11 @@ main {
 
 }
 
+header {
+    position: fixed;
+    width: 100%;
+}
+
 body {
     background: rgba(255, 255, 255, 0.623)
 }
@@ -20,7 +25,7 @@ h1 {
     font-family: 'Pacifico', cursive;
     text-align: center;
     font-size: 4rem;
-    padding: 20px;
+    padding-top: 4%;
 }
 
 .each-movie {

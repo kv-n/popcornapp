@@ -5,8 +5,9 @@
 <h1>Your Reviews</h1>
 
 <% for (let i = 0; i < reviews.length; i++ ) {%>
-<h3><%=reviews[i].title%></h3>
-<p><%=reviews[i].review%></p>
+<h2>Movie Title: <%=reviews[i].movieTitle%></h2>
+<h3>Review Title: <%=reviews[i].title%></h3>
+<p>Review: <%=reviews[i].review%></p>
 <form action="/reviews/<%= reviews[i]._id %>?_method=DELETE" method="POST">
 <button type="submit">Delete This Review</button>
 </form>

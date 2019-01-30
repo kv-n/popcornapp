@@ -1,0 +1,128 @@
+html {
+    height: 100%;
+}
+body {
+    font-family: 'Dosis', sans-serif;
+}
+
+header {
+    position: fixed;
+    width: 100%;
+}
+
+h1 {
+    font-family: 'Pacifico', cursive;
+    text-align: center;
+    font-size: 4rem;
+}
+
+h2 {
+    font-family: 'Dosis', sans-serif;
+    text-align: center;
+    padding-top: 5%;
+}
+
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.review-form{
+    align-content: center;
+    text-align: center;
+}
+
+.movie-review-page {
+    padding: 5px;
+    font-family: 'Dosis', sans-serif;
+    
+}
+
+.user-reviews {
+    padding: 30px;
+}
+
+.p-review {
+    font-size: 17px;
+    margin-right: 20px;
+    margin-left: 20px;
+    text-align: center;
+    padding: 5px;
+}
+
+
+.each-movie {
+    padding: 8px;
+}
+
+#polina button { 
+font-family: 'Dosis', sans-serif;
+display: block;
+width: 16%;
+padding: .4rem;
+border: none; 
+margin: 1rem auto; 
+font-size: 1.3rem;
+background: rgba(0, 0, 0, 0.23);
+color: black;
+border-radius: 3px; 
+cursor: pointer;
+transition: .3s background;
+}
+
+#polina button:hover { 
+    background: rgba(0,0,0,0.5);
+}
+
+
+
+
+
+
+
+
+
+
+.nav {
+    font-family: 'Dosis', sans-serif;
+    height: 50px;
+    width: 100%;
+    background-color: #242222;
+    position: relative;
+}
+
+.nav > .nav-header {
+    display: inline;
+}
+
+.nav > .nav-header > .nav-title {
+    display: inline-block;
+    font-size: 22px;
+    color: #fff;
+    padding: 10px 10px 10px 10px;
+}
+
+.nav > .nav-btn {
+    display: none;
+}
+
+.nav > .nav-links {
+    float: right;
+    font-size: 18px;
+}
+
+.nav > .nav-links > a {
+    display: inline-block;
+    padding: 13px 10px 13px 10px;
+    text-decoration: none;
+    color: #efefef;
+}
+
+.nav > .nav-links > a:hover {
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.nav > #nav-check {
+    display: none;
+}

@@ -2,23 +2,6 @@
     box-sizing: border-box;
 }
 
-h1 {
-    font-family: 'Pacifico', cursive;
-    text-align: center;
-    font-size: 4rem;
-}
-
-h2 {
-    font-family: 'Dosis', sans-serif;
-    text-align: center;
-}
-
-img {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
-
 .nav {
     font-family: 'Dosis', sans-serif;
     height: 50px;
@@ -67,7 +50,7 @@ img {
 .movie-show {
     display: flex;
     flex-wrap: wrap;
-    margin: 200px;
+    margin: 40px;
     justify-content: center;
 }
 

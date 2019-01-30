@@ -1,20 +1,21 @@
-<%- include("../partials/header") %>
+<%- include("../partials/movieshowpage") %>
 
 
 <section class = "movie-show">
 
-<div>
+<div class="movie-review-page">
 <h2><%=movie.title%></h2>
 <img src = "https://image.tmdb.org/t/p/w200/<%= movie.poster_path %>"/>
-<p><%=movie.overview%></p>
+<p class="p-review"><%=movie.overview%></p>
 </div>
 
-<div class = "review-form">
-<h2>New Review</h2>
+<div id="polina" class = "review-form">
      <main>
 
-     <form action="/reviews/<%=user.id%>/<%= movie.id %>    " method="POST">
-     <%=user.name%>  
+     <button onclick="myFunction()">New Review</button>
+     <div id="myDIV" style="display:none">
+     <form action="/reviews/<%=user.id%>/<%= movie.id %>/<%= movie.title %>" method="POST">
+     Username: <%=user.name.toUpperCase()%>  
      <br>
      <p>TITLE:</p> <input type="text" name="title">
      <p>REVIEW:</p> <input type="text" name="review">
@@ -27,6 +28,7 @@
      <option value = 5> This is the best !@#$@# Popcorn!</option>
      </select><br><br>
      <button type="submit">Enter New Review</button>
+     </div>
      </form>
      </main>
      </div>
@@ -40,8 +42,8 @@
             <div class="user-reviews">
                 <p>User: <%= u.username %></p>
                 <p>Review Title: <%= r.title %></p>
-                <p><%= r.review %></p>
-                <p><%= r.rating %></p>
+                <p>Review: <%= r.review %></p>
+                <p>Rating: <%= r.rating %></p>
                 </div>
             <% } %>
         <% }) %>

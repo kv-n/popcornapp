@@ -1,15 +1,9 @@
 const express = require('express')
 const router = express.Router()
-//model data goes here
 const User = require('../models/users')
 const bcrypt = require('bcryptjs')
-//install bcryptjs
+
 //express-session - required in server .js
-
-// router.get('/', (req, res) => {
-//     res.render('users/show')
-// })
-
 
 //registration
 router.post('/', async (req, res) => {
@@ -23,7 +17,6 @@ router.post('/', async (req, res) => {
     newUser.username = username
     newUser.email = req.body.email
     newUser.password = hashedPswrd
-    //newUser.accountType = req.body.accountType === 'teacher' ? 'teacher' : 'student' //for mulptiple accounts//
     try {
         //User.create -- User is coming from const User = 
         const createdUser = await User.create(newUser)
