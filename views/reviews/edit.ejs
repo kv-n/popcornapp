@@ -1,11 +1,14 @@
 <%- include("../partials/header", {title: 'Edit'}) %>
 
-<h1>Edit This Review</h1>
 
+
+<h1>Edit This Review</h1>
 <form action="/reviews/<%=review._id%>?_method=PUT" method="POST">
-<p>TITLE:</p> <input type="text" name="title" value="<%=review.title%>">
-<p>REVIEW:</p> <input type="text" name="review" value="<%=review.review%>">
-<p>RATING:</p> 
+<div class="comments">
+<p>
+TITLE: <input type="text" name="title" value="<%=review.title%>"><br>
+REVIEW: <input type="text" name="review" value="<%=review.review%>"><br>
+RATING: 
 <select name="rating">
 <option value = 'This popcorn is stale...'> This popcorn is stale...</option>
 <option value = 'This popcorn needs butter'> This popcorn needs butter </option>
@@ -14,6 +17,15 @@
 <option value = 'This is the best !@#$@# Popcorn!'> This is the best !@#$@# Popcorn!</option>
 </select><br><br>
 <button type="submit">Enter New Review</button>
+  
+</p>
 </form>
+
+
+
+
+
+
+
 
 <%- include("../partials/footer") %>

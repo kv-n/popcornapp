@@ -100,3 +100,8 @@ background-color: rgba(0, 0, 0, 0.3);
 .nav > #nav-check {
 display: none;
 }
+
+
+input {
+    width: 50%;
+}

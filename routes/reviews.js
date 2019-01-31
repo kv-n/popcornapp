@@ -5,17 +5,8 @@ const User = require('../models/users')
 
 //ROUTES
 
-//index
-router.get('/', async (req, res) => {
-    try {
-        const allUsers = await User.find({});
-        res.render('reviews/index', {
-            users: allUsers
-        })
-    } catch (eerr) {
-        res.send(err)
-    }
-})
+//removed review index
+
 
 //new route//rendering create form
 router.get('/new', (req, res) => {
@@ -109,7 +100,7 @@ router.get('/review/:id', (req, res) => {
 router.delete('/:id', (req, res) => {
     //finding the review document id
     User.findOne({ 'review._id' : req.params.id }, (err, foundUser) => {
-        //
+        //finding the user and review id and matching it to the review in the params and removes it
         foundUser.review.id(req.params.id).remove()
         foundUser.save((err, data) => {
             if (err) {

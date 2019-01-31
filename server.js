@@ -1,15 +1,15 @@
 
+require('dotenv').config();
 var createError = require('http-errors');
 var express = require('express');
-require('./db/db')
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var bodyParser = require('body-parser')
 var methodOverride = require('method-override');
 var session = require('express-session');
-require('dotenv').config();
 var app = express();
+require('./db/db')
 
 
 
