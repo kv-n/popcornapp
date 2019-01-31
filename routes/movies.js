@@ -14,25 +14,25 @@ const topMovies= `${rootUrl}movie/top_rated?api_key=${token}&page=2`
 // show all popular movies
 // route /movies
 router.get('/', (req, res) => {
-    axios.get(popularMovies)
-        .then(response => {
-            console.log(response)
-            res.render('movies/index', {
-                latestMovies: response.data.results
-            })
-        }).catch(err => console.log(err))
+axios.get(popularMovies)
+    .then(response => {
+        console.log(response)
+        res.render('movies/index', {
+            latestMovies: response.data.results
+        })
+    }).catch(err => console.log(err))
 })
 
 //show all top rated
 //route /movies/toprated
 router.get('/top-rated', (req, res) => {
-    axios.get(topMovies)
-        .then(response => {
-            console.log(response)
-            res.render('movies/index', {
-                latestMovies: response.data.results
-            })
-        }).catch(err => console.log(err))
+axios.get(topMovies)
+    .then(response => {
+        console.log(response)
+        res.render('movies/index', {
+            latestMovies: response.data.results
+        })
+    }).catch(err => console.log(err))
 })
 
 
@@ -43,15 +43,15 @@ router.get('/:id', async (req, res) => {
     const allUsersWithReview = await User.find({'review.movieId': req.params.id})
     axios.get(`${rootUrl}movie/${req.params.id}?api_key=${token}`)
         .then(response => {
-            res.render('movies/show', {
-                movie: response.data,
-                allUsersWithReview,
-                user: {
-                    name: req.session.username,
-                    id: req.session.userId,
-                }
-            })
-        }).catch(err => console.log(err))
+        res.render('movies/show', {
+            movie: response.data,
+            allUsersWithReview,
+            user: {
+                name: req.session.username,
+                id: req.session.userId,
+            }
+        })
+    }).catch(err => console.log(err))
 })
 
 

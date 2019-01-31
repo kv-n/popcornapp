@@ -14,18 +14,15 @@
     <div class="grid__item panel-2">
         <div class="content">
 
-        
-<h2>USER REVIEWS</h2>
-
 
 <%allUsersWithReview.forEach(u => { %>
 <% u.review.forEach(r => { %> 
 <% if (r.movieId === movie.id) { %> 
     <p class = "comments">
-        User: <%= u.username %><br>
-        Review Title: <%= r.title %><br>
-        Review: <%= r.review %><br>
-        Rating: <%= r.rating %><br><br>
+        <strong>User:</strong> <%= u.username %><br>
+        <strong>Review Title:</strong> <%= r.title %><br>
+        <strong>Review:</strong> <%= r.review %><br>
+        <strong>Rating:</strong> <%= r.rating %><br><br>
     </p>
     <% } %>
 <% }) %>
@@ -44,11 +41,11 @@ TITLE: <input type="text" name="title"><br>
 REVIEW: <input type="text" name="review"><br>
 RATING:
 <select name="rating">
-<option value = 1> This popcorn is stale...</option>
-<option value = 2> This popcorn needs butter </option>
-<option value = 3> This popcorn was okay. </option>
-<option value = 4> This popcorn was great! </option>
-<option value = 5> This is the best !@#$@# Popcorn!</option>
+<option value = 'This popcorn was stale...'> This popcorn is stale...</option>
+<option value = 'his popcorn needed butter.'> This popcorn needed butter </option>
+<option value = 'This popcorn was decent.'> This popcorn was decent. </option>
+<option value = 'This popcorn was great!'> This popcorn was great! </option>
+<option value = 'This is the best !@#$@# Popcorn!'> This is the best !@#$@# Popcorn!</option>
 </select><br><br>
 <button type="submit">Enter New Review</button>
 </div>

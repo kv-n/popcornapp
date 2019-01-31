@@ -11,6 +11,7 @@ body {
 header {
     position: fixed;
     width: 100%;
+    z-index: 5;
 }
 
 h2 {
@@ -162,24 +163,22 @@ transition: .3s background;
 
 
 
-  a {
+a {
     color: #2ecc71;
     font-family: tahoma;
 }
-/*
-** timeline css codes
-*/
+
 
 p {
-padding: 20px;
-background: #34495e;
-color: #ecf0f1;
-font-family: tahoma;
-line-height: 2;
-position: relative;
-margin-bottom: 20px;
-width: 600px;
-padding-top: 9%
+    padding: 20px;
+    background: #34495e;
+    color: #ecf0f1;
+    font-family: tahoma;
+    line-height: 2;
+    position: relative;
+    margin-bottom: 20px;
+    width: 600px;
+    padding-top: 4%
 }
 
 p > button{
@@ -191,18 +190,18 @@ p > button{
     border: 0;
     font-weight: bold;
     cursor: pointer;
-  }
+}
 
 p:after{
-content: "";
-display: block;
-width: 0;
-height: 0;
-border-style: solid;
-border-color: #34495e #34495e transparent       transparent ;
-border-width: 15px;
-position: absolute;
-top: 0px;
-left: -29px;
+    content: "";
+    display: block;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-color: #34495e #34495e transparent       transparent ;
+    border-width: 15px;
+    position: absolute;
+    top: 0px;
+    left: -29px;
 }
 

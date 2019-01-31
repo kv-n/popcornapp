@@ -1,42 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" type="text/css" href="/../stylesheets/mainsite.css">
-    <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Dosis" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
-    <script src="../javascripts/trailer.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="stylesheet" type="text/css" href="/../stylesheets/mainsite.css">
+<link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Dosis" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+<script src="../javascripts/trailer.js"></script>
 
-  <% if(title === 'Welcome') { %> 
-    <link rel="stylesheet" type="text/css" href="../stylesheets/style.css">
-  <% } else if (title === 'Login | Register') { %> 
-    <link rel="stylesheet" type="text/css" href="../stylesheets/style.css">
-  <% } else if (title === 'Movie Index') { %> 
-    <link rel="stylesheet" type="text/css" href="/../stylesheets/movieindex.css">
-  <% } else if (title === 'Movie') { %> 
-    <link rel="stylesheet" type="text/css" href="/../stylesheets/movieshow.css">
-  <% } else if (title === 'Your Reviews') { %> 
-    <link rel="stylesheet" type="text/css" href="/../stylesheets/user-reviews.css">
-  <% } else if (title === 'Edit') { %> 
-    <link rel="stylesheet" type="text/css" href="/../stylesheets/mainsite.css">
-  <% } else { %> 
-    <link rel="stylesheet" type="text/css" href="/../stylesheets/mainsite.css">
-  <% }%> 
+<% if(title === 'Welcome') { %> 
+  <link rel="stylesheet" type="text/css" href="../stylesheets/style.css">
+<% } else if (title === 'Login | Register') { %> 
+  <link rel="stylesheet" type="text/css" href="../stylesheets/style.css">
+<% } else if (title === 'Movie Index') { %> 
+  <link rel="stylesheet" type="text/css" href="/../stylesheets/movieindex.css">
+<% } else if (title === 'Movie') { %> 
+  <link rel="stylesheet" type="text/css" href="/../stylesheets/movieshow.css">
+<% } else if (title === 'Your Reviews') { %> 
+  <link rel="stylesheet" type="text/css" href="/../stylesheets/user-reviews.css">
+<% } else if (title === 'Edit') { %> 
+  <link rel="stylesheet" type="text/css" href="/../stylesheets/mainsite.css">
+<% } else { %> 
+  <link rel="stylesheet" type="text/css" href="/../stylesheets/mainsite.css">
+<% }%> 
 
 <title><%= title.toUpperCase() %></title>
+
 </head>
+
 <body> 
-
-
 
 <header>
 <div class="nav">
   <div class="nav-header">
     <div class="nav-title">
-      POPCORN
+      <a class="popcorn" href="/movies">POPCORN</a>
     </div>
   </div>
   <div class="nav-btn">
@@ -54,5 +54,6 @@
   <a href="/authentication/logout" alt="logout">LOGOUT &nbsp</a>
   </div>
 </div>
+
 </header>
 
