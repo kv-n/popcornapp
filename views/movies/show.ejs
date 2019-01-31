@@ -6,7 +6,9 @@
     <div class="grid__item panel-1">
         <div class="content">
             <img src = "https://image.tmdb.org/t/p/w200/<%= movie.poster_path %>"/>
-            <p class="p-review"><%=movie.overview%></p>
+           <div class="comments"> 
+            <h4 class="p-review"><%=movie.overview%></h4>
+            </div>
     </div>
         </div>
     <div class="grid__item panel-2">
@@ -15,23 +17,21 @@
         
 <h2>USER REVIEWS</h2>
 
-<div class="card">
-<div class="container">
 
+
+<p class = "comments">
 <%allUsersWithReview.forEach(u => { %>
 <% u.review.forEach(r => { %> 
     <% if (r.movieId === movie.id) { %> 
-    <div class="user-reviews">
-        <p>User: <%= u.username %></p>
-        <p>Review Title: <%= r.title %></p>
-        <p>Review: <%= r.review %></p>
-        <p>Rating: <%= r.rating %></p>
-        </div>
+        User: <%= u.username %><br>
+        Review Title: <%= r.title %><br>
+        Review: <%= r.review %><br>
+        Rating: <%= r.rating %><br><br>
     <% } %>
 <% }) %>
 <%})%>
-</div>
-</div>
+</p>
+
 
 <div id="polina">
 
@@ -41,9 +41,9 @@
 <form action="/reviews/<%=user.id%>/<%= movie.id %>/<%= movie.title %>" method="POST">
 Username: <%=user.name.toUpperCase()%>  
 <br>
-<p>TITLE:</p> <input type="text" name="title">
-<p>REVIEW:</p> <input type="text" name="review">
-<p>RATING:</p> 
+TITLE: <input type="text" name="title"><br>
+REVIEW: <input type="text" name="review"><br>
+RATING:
 <select name="rating">
 <option value = 1> This popcorn is stale...</option>
 <option value = 2> This popcorn needs butter </option>

@@ -1,19 +1,27 @@
-/*
-** reseting 
-*/
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
 
-a{
-color: #2ecc71;
-font-family: tahoma;
+h1 {
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    font-size: 4rem;
+    padding-top: 6%;
+    padding-bottom: 2%;
+}
+
+
+a {
+    color: #2ecc71;
+    font-family: tahoma;
 }
 /*
 ** timeline css codes
 */
 .comments {
-width: 700px;
-margin: 100px auto;
-padding: 0px 10px 0px 50px;
-border-left: 2px solid #34495e;
+    width: 700px;
+    margin: auto;
 }
 
 p {
@@ -23,37 +31,20 @@ color: #ecf0f1;
 font-family: tahoma;
 line-height: 1.7;
 position: relative;
-}
-
-p > span {
-    display: block;
-    padding: 5px 5px 10px 5px;
-    color: #7f8c8d;
-    font-style: italic;
-    font-size: 13px;
+margin: 20px;
 }
 
 p > button{
-background: #2ecc71;
-color: #fff;
-width: 100px;
-padding: 10px;
-border-radius: 2px;
-border: 0;
-font-weight: bold;
-cursor: pointer;
-}
-p:before{
-content: "";
-display: block;
-width: 20px;
-height: 20px;
-border-radius: 50%;
-background: #2ecc71;
-top: -9px;
-left: -61px;
-position: absolute;
-}
+    background: #2ecc71;
+    color: #fff;
+    width: 100px;
+    padding: 10px;
+    border-radius: 2px;
+    border: 0;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
 p:after{
 content: "";
 display: block;
@@ -65,11 +56,6 @@ border-width: 15px;
 position: absolute;
 top: 0px;
 left: -29px;
-}
-
-* {
-box-sizing: border-box;
-margin: 0;
 }
 
 .nav {
