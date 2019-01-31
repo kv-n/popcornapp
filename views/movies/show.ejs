@@ -18,19 +18,18 @@
 <h2>USER REVIEWS</h2>
 
 
-
-<p class = "comments">
 <%allUsersWithReview.forEach(u => { %>
 <% u.review.forEach(r => { %> 
-    <% if (r.movieId === movie.id) { %> 
+<% if (r.movieId === movie.id) { %> 
+    <p class = "comments">
         User: <%= u.username %><br>
         Review Title: <%= r.title %><br>
         Review: <%= r.review %><br>
         Rating: <%= r.rating %><br><br>
+    </p>
     <% } %>
 <% }) %>
 <%})%>
-</p>
 
 
 <div id="polina">
@@ -55,11 +54,5 @@ RATING:
 </div>
 </form>
 </div>
-
-     </section>
-        </div>
-    </div>
-</div>
-
 
 <%- include("../partials/footer") %>

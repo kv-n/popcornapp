@@ -72,7 +72,6 @@ router.put('/:id', async (req, res) => {
         const updatedReview = await Review.findByIdAndUpdate(req.params.id, req.body, { new: true })
         const foundUser = await User.findById(req.session.userId)
         // foundUser.review === [] find where the old review is and delete and then add the updated review
-        
         await foundUser.review.id(req.params.id).remove()
         foundUser.review.push(updatedReview)
         foundUser.save((err, data) => {
@@ -110,7 +109,7 @@ router.get('/review/:id', (req, res) => {
 //delete
 router.delete('/:id', (req, res) => {
     //finding the review document id
-    User.findOne({ 'review._id': req.params.id }, (err, foundUser) => {
+    User.findOne({ 'review._id' : req.params.id }, (err, foundUser) => {
         //
         foundUser.review.id(req.params.id).remove()
         foundUser.save((err, data) => {
