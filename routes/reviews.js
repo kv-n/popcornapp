@@ -3,7 +3,6 @@ const router = express.Router()
 const Review = require('../models/reviews')
 const User = require('../models/users')
 
-
 //ROUTES
 
 //index
@@ -31,7 +30,6 @@ router.get('/new', (req, res) => {
 
 })
 
-
 //create route //create in our database
 router.post('/:id/:movieId/:movieTitle', (req, res) => {
     //finding current user by ID
@@ -55,8 +53,7 @@ router.post('/:id/:movieId/:movieTitle', (req, res) => {
     })
 })
 
-
-//edit route//edit form
+//edit route //edit form
 router.get('/:id/edit', (req, res) => {
     Review.findById(req.params.id, (err, foundReview) => {
         if (err){
@@ -69,6 +66,22 @@ router.get('/:id/edit', (req, res) => {
     })
 })
 
+//update//edits into database
+router.put('/:id', async (req, res) => {
+    try {
+        const updatedReview = await Review.findByIdAndUpdate(req.params.id, req.body, { new: true })
+        const foundUser = await User.findById(req.session.userId)
+        // foundUser.review === [] find where the old review is and delete and then add the updated review
+        
+        await foundUser.review.id(req.params.id).remove()
+        foundUser.review.push(updatedReview)
+        foundUser.save((err, data) => {
+            res.redirect(`/reviews/${req.session.userId}`)
+        })
+    } catch (err) {
+        res.send("this is the err" + err)
+    }
+});
 
 //show
 router.get('/:id', (req, res) => {
@@ -92,22 +105,6 @@ router.get('/review/:id', (req, res) => {
         }
     })
 })
-
-//update//edits into database
-router.put('/:id', async (req, res) => {
-    try {
-        const updatedReview = await Review.findByIdAndUpdate(req.params.id, req.body, { new: true })
-        const foundUser = await User.findById(req.session.user.id)
-        // foundUser.review === [] find where the old review is and delete and then add the updated review
-        foundUser.review.id(req.params.id).remove()
-        foundUser.review.push(updatedReview)
-        foundUser.save((err, data) => {
-            res.redirect(`/reviews/${req.session.userId}`)
-        })
-    }catch (err){
-        res.send(err)
-    }
-});
 
 
 //delete
