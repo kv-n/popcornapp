@@ -49,7 +49,7 @@ Like my first project, I had to find a way to organize my models, routes and vie
 
 I started with a reviews and users models and included the 7 RESTful routes for each model.
 
-![Image of RESTful Routes](https://imgur.com/a/AKYmpSF)
+![Image of RESTful Routes](https://imgur.com/reZfvjg)
 
 After a lot of confusion with routing and ideas, Mike, our local instructor introduced me to APIs and helped me organize my reviews model. After making the index for the movies and seeing each movie on the screen I had a better understanding of what I wanted to accomplish.
 
