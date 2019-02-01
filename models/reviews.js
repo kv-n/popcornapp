@@ -4,7 +4,9 @@ const reviewSchema = new mongoose.Schema({
     title: String,
     review: String,
     rating: String,
+    // tie unique movie title to api movie 
     movieTitle: String,
+    // tie unique movie id to api movie
     movieId: Number
 })
 

@@ -10,7 +10,6 @@ const popularMovies = `${rootUrl}movie/popular?api_key=${token}&page=2`
 const topMovies= `${rootUrl}movie/top_rated?api_key=${token}&page=2`
 
 
-
 // show all popular movies
 // route /movies
 router.get('/', (req, res) => {
@@ -34,8 +33,6 @@ axios.get(topMovies)
         })
     }).catch(err => console.log(err))
 })
-
-
 
 // show one movie
 // route /movies/:id

@@ -55,7 +55,6 @@ router.post('/login', async (req, res) => {
                 req.session.userId = loggedUser._id
                 req.session.user = loggedUser
                 // res.locals.username = loggedUser.username
-                // console.log(res.locals, "Hitting this!!!")
                 res.redirect('/movies')
             } else {
                 req.session.message = "YOUR PASSWORD IS INCORRECT"

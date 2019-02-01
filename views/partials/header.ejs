@@ -8,6 +8,7 @@
 <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Dosis" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
 <script src="../javascripts/trailer.js"></script>
 
 <% if(title === 'Welcome') { %> 
@@ -36,7 +37,7 @@
 <div class="nav">
   <div class="nav-header">
     <div class="nav-title">
-      <a class="popcorn" href="/movies">POPCORN</a>
+      <a class="popcorn" href="/movies">SHARE//ME</a>
     </div>
   </div>
   <div class="nav-btn">
@@ -50,6 +51,7 @@
   <div class="nav-links">
   <a href="/movies">POPULAR MOVIES &nbsp |</a> 
   <a href="/movies/top-rated">TOP RATED MOVIES &nbsp |</a> 
+  
   <a href="/reviews/<%= thatUser && thatUser._id%>"><%= thatUser && thatUser.username.toUpperCase()%> &nbsp |</a>
   <a href="/authentication/logout" alt="logout">LOGOUT &nbsp</a>
   </div>

@@ -15,7 +15,7 @@ router.post('/:id/:movieId/:movieTitle', (req, res) => {
             if (err) {
                 res.send(err)
             } else {
-                //created review matches the moviid with movieid in req.params
+                //created review matches the movieid with movieid in req.params
                 //created review matches movie title with movie title in req.params
                 createdReview.movieId = req.params.movieId
                 createdReview.movieTitle = req.params.movieTitle

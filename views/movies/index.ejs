@@ -1,13 +1,23 @@
 <%- include("../partials/header", {title: 'Movie Index'}) %>
 
 
-<h1 class='movie-index'>POPCORN</h1>
+<div class="foo">
+
+  <span class="letter" data-letter="P">P</span>
+    <span class="letter" data-letter="O">O</span>
+  <span class="letter" data-letter="P">P</span>
+  <span class="letter" data-letter="C">C</span>
+    <span class="letter" data-letter="O">O</span>
+   <span class="letter" data-letter="R">R</span>
+    <span class="letter" data-letter="N">N</span>
+
+</div>
 
 <main class='movie-index' >
 
 
 <% latestMovies.forEach(m => { %> 
-    <div class="each-movie">
+    <div class="each-movie style_prevu_kit">
     <a href='/movies/<%=m.id%>'><img src = "https://image.tmdb.org/t/p/w200/<%= m.poster_path %>"/></a>
     </div>
 <% }) %>

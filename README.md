@@ -48,7 +48,7 @@ This app was a great experience to really put into practice everything we've lea
 
 Like my first project, I had to find a way to organize my models, routes and views. I knew I wanted to try and include an API but one of the biggest challenges was to organize my routes and models without having any idea on how API works or where I wanted the routes to go once you clicked each movie in the index.
 
-![Image of RESTful Routes](https://i.imgur.com/DBTSweo.png)
+![Image of Wire Frame](https://i.imgur.com/8jryYm5.png)
 
 I started with a reviews and users models and included the 7 RESTful routes for each model.
 
