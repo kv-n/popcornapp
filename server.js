@@ -12,9 +12,6 @@ var app = express();
 require('./db/db')
 
 
-
-
-
 app.use(session({
   secret: "This is a random string secret",
   resave: false,
@@ -35,18 +32,12 @@ app.use(bodyParser.urlencoded({extended:true}));
 app.use(methodOverride('_method'))
 app.use(express.static(path.join(__dirname, 'public')));
 
-// setting the local variable for the views and point to req.session
+// setting the global variable for the views and points to req.session
 app.use((req, res, next)=> {
   //req.locals
   res.locals.thatUser = req.session.user
   next()
 })
-
-// app.use(session({
-//   secret: "This is a secret string",
-//   resave: false,
-//   saveUninitialized: false
-// }))
 
 
 //routes
@@ -63,11 +54,12 @@ app.get('/', (req, res) => {
 
 
 app.use('/authentication', authRouter);
+app.use('/users', usersRouter);
 
-// app.use((req, res, next) => req.session.logged ? next() : res.redirect('/'));
+app.use((req, res, next) => req.session.logged ? next() : res.redirect('/'));
+
 
 app.use('/reviews', reviewsRouter);
-app.use('/users', usersRouter);
 app.use('/movies', movieRouter);
 
 

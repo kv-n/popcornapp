@@ -54,17 +54,17 @@ img {
 }
 
 #polina button { 
-font-family: 'Dosis', sans-serif;
-display: block;
-padding: .4rem;
-border: none; 
-margin-left: 1rem;
-font-size: 1.3rem;
-color: white;
-background:#34495e;
-border-radius: 3px; 
-cursor: pointer;
-transition: .3s background;
+    font-family: 'Dosis', sans-serif;
+    display: block;
+    padding: .4rem;
+    border: none; 
+    margin-left: 1rem;
+    font-size: 1.3rem;
+    color: white;
+    background:#34495e;
+    border-radius: 3px; 
+    cursor: pointer;
+    transition: .3s background;
 }
 
 #polina button:hover { 

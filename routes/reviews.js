@@ -5,21 +5,6 @@ const User = require('../models/users')
 
 //ROUTES
 
-//removed review index
-
-
-//new route//rendering create form
-router.get('/new', (req, res) => {
-    User.find({}, (err, allUsers) => {
-        res.render('reviews/new', {
-            user: {
-                name: req.session.username, 
-                id: req.session.userId
-            }
-        })
-    })
-
-})
 
 //create route //create in our database
 router.post('/:id/:movieId/:movieTitle', (req, res) => {
@@ -30,7 +15,8 @@ router.post('/:id/:movieId/:movieTitle', (req, res) => {
             if (err) {
                 res.send(err)
             } else {
-                //created review matches the movie Id
+                //created review matches the moviid with movieid in req.params
+                //created review matches movie title with movie title in req.params
                 createdReview.movieId = req.params.movieId
                 createdReview.movieTitle = req.params.movieTitle
                 createdReview.save()
@@ -57,7 +43,7 @@ router.get('/:id/edit', (req, res) => {
     })
 })
 
-//update//edits into database
+//update //edits into database
 router.put('/:id', async (req, res) => {
     try {
         const updatedReview = await Review.findByIdAndUpdate(req.params.id, req.body, { new: true })
@@ -85,7 +71,6 @@ router.get('/:id', (req, res) => {
 // show review
 router.get('/review/:id', (req, res) => {
     Review.findById(req.params.id, (err, foundReview) => {
-        console.log(foundReview)
         if (err) {
             res.send(err)
         } else {
@@ -98,9 +83,9 @@ router.get('/review/:id', (req, res) => {
 
 //delete
 router.delete('/:id', (req, res) => {
-    //finding the review document id
+    // finding the review document id
     User.findOne({ 'review._id' : req.params.id }, (err, foundUser) => {
-        //finding the user and review id and matching it to the review in the params and removes it
+        // finding the user and review id and matching it to the review in the params and removes it
         foundUser.review.id(req.params.id).remove()
         foundUser.save((err, data) => {
             if (err) {
