@@ -30,25 +30,27 @@
 
 <div id="polina">
 
-<button onclick="myFunction()">New Review</button>
-<div id="myDIV" style="display:none">
+<% if (user.name) { %>
+    <button onclick="myFunction()">New Review</button>
+    <div id="myDIV" style="display:none">
 
-<form action="/reviews/<%=user.id%>/<%= movie.id %>/<%= movie.title %>" method="POST">
-Username: <%=user.name.toUpperCase()%>  
-<br>
-TITLE: <input type="text" name="title"><br>
-REVIEW: <input type="text" name="review"><br>
-RATING:
-<select name="rating">
-<option value = 'This popcorn was stale...'> This popcorn is stale...</option>
-<option value = 'his popcorn needed butter.'> This popcorn needed butter </option>
-<option value = 'This popcorn was decent.'> This popcorn was decent. </option>
-<option value = 'This popcorn was great!'> This popcorn was great! </option>
-<option value = 'This is the best !@#$@# Popcorn!'> This is the best !@#$@# Popcorn!</option>
-</select><br><br>
-<button type="submit">Enter New Review</button>
-</div>
-</form>
-</div>
+    <form action="/reviews/<%=user.id%>/<%= movie.id %>/<%= movie.title %>" method="POST">
+    Username: <%=user.name.toUpperCase()%>  
+    <br>
+    TITLE: <input type="text" name="title"><br>
+    REVIEW: <input type="text" name="review"><br>
+    RATING:
+    <select name="rating">
+    <option value = 'This popcorn was stale...'> This popcorn is stale...</option>
+    <option value = 'his popcorn needed butter.'> This popcorn needed butter </option>
+    <option value = 'This popcorn was decent.'> This popcorn was decent. </option>
+    <option value = 'This popcorn was great!'> This popcorn was great! </option>
+    <option value = 'This is the best !@#$@# Popcorn!'> This is the best !@#$@# Popcorn!</option>
+    </select><br><br>
+    <button type="submit">Enter New Review</button>
+    </div>
+    </form>
+    </div>
+<% } %>
 
 <%- include("../partials/footer") %>
