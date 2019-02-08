@@ -22,7 +22,9 @@ transition: 1s opacity;
   font-size: 1.5rem;
 }
 
-
+.splash:nth-child(3) {
+  float: right;
+}
 
 
 #polina { 
