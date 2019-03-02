@@ -51,9 +51,12 @@
   <div class="nav-links">
   <a href="/movies">POPULAR MOVIES &nbsp |</a> 
   <a href="/movies/top-rated">TOP RATED MOVIES &nbsp |</a> 
-  
-  <a href="/reviews/<%= thatUser && thatUser._id%>"><%= thatUser && thatUser.username.toUpperCase()%> &nbsp |</a>
-  <a href="/authentication/logout" alt="logout">LOGOUT &nbsp</a>
+  <% if (thatUser) { %>
+    <a href="/reviews/<%= thatUser && thatUser._id%>"><%= thatUser && thatUser.username.toUpperCase()%> &nbsp |</a>
+    <a href="/authentication/logout" alt="logout">LOGOUT &nbsp</a>
+  <% } else { %>
+    <a href="/users/new" alt="login">LOGIN &nbsp</a>
+  <% } %>
   </div>
 </div>
 

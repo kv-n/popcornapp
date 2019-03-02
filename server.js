@@ -56,7 +56,7 @@ app.get('/', (req, res) => {
 app.use('/authentication', authRouter);
 app.use('/users', usersRouter);
 
-app.use((req, res, next) => req.session.logged ? next() : res.redirect('/'));
+// app.use((req, res, next) => req.session.logged ? next() : res.redirect('/'));
 
 
 app.use('/reviews', reviewsRouter);
